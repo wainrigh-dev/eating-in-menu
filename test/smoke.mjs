@@ -88,10 +88,19 @@ check("requests page shows Added status", (await page.content()).includes("statu
 check("requests page shows New status", (await page.content()).includes("status-req new"));
 check("requests page links to the form", (await page.locator('a[href*="forms.gle"]').count()) >= 1);
 
+// 7b. Roasting guide: rows render with names, temps, times, and a tappable link where present.
+await page.goto(`${base}/roasting.html`);
+await page.waitForSelector(".roasting-table");
+check("roasting page shows Carrots row", (await page.content()).includes("Carrots") && (await page.content()).includes("425°F"));
+check("roasting page shows a row with no link as plain text", (await page.content()).includes("Broccoli") && (await page.locator('.roasting-table a:has-text("Broccoli")').count()) === 0);
+check("roasting page links Carrots to its source", (await page.locator('.roasting-table a:has-text("Carrots")').count()) === 1);
+check("roasting page never shows notes (not in the snapshot schema)", !(await page.content()).toLowerCase().includes("notes"));
+check("roasting nav tab is active on roasting.html", await page.locator('nav.tabs a[data-tab="roasting"]').getAttribute("class") === "active");
+
 // 8. Privacy: no disallowed fields ever present in rendered HTML across pages checked.
 const disallowed = ["allergy", "caution", "cost", "household"];
 let leaked = false;
-for (const url of ["/index.html", "/meal.html?id=m1-Tue", "/requests.html"]) {
+for (const url of ["/index.html", "/meal.html?id=m1-Tue", "/requests.html", "/roasting.html"]) {
   await page.goto(`${base}${url}`);
   const html = (await page.content()).toLowerCase();
   if (disallowed.some((w) => html.includes(w))) leaked = true;

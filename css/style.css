@@ -226,6 +226,12 @@ footer.site {
 .status-req.new { background: var(--accent-soft); color: var(--accent); }
 .status-req.added { background: #e2efe7; color: var(--green); }
 
+.roasting-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.roasting-table th, .roasting-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
+.roasting-table th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.roasting-table tr:last-child td { border-bottom: none; }
+.roasting-table td a { font-weight: 600; }
+
 /* ---- Print sheet (triggered only via the Print button; hidden otherwise) ---- */
 #print-sheet { display: none; }
 

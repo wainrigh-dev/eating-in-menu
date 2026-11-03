@@ -88,12 +88,20 @@ that's how Alex knows how fresh it is.
       ]
     }
   ],
-  "requests": []
+  "requests": [],
+  "roasting": [
+    { "name": "Carrots", "temp": "425°F", "time": "20-25 min", "link": "https://example.com/roasted-carrots" }
+  ]
 }
 ```
 
 Notes on reading this shape, from the real builder's behavior (see `buildAlexSnapshot` in the
 app's `src/app.tsx` if you ever do get access to that repo):
+
+- `roasting` (added Work Order 4E / app v2.18) is name/temp/time/link only — **never** notes, and
+  the array is absent or empty on any snapshot published before v2.18, with the app's "Roasting
+  table" feature off, or with no rows saved yet. Render all three the same way: no section. `link`
+  is `null` when that row has none — show the name as plain text, not a dead link.
 
 - `weeks` is sorted ascending by `weekId` (the Sunday of each week, `YYYY-MM-DD`) and only includes
   the current week and weeks after it that have at least one planned meal — a far-future empty

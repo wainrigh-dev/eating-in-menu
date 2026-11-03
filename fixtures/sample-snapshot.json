@@ -94,5 +94,10 @@
   "requests": [
     { "id": "req-1", "kind": "meal", "week": "2026-11-01", "note": "Can we do tacos again?", "status": "Added" },
     { "id": "req-2", "kind": "ingredient", "note": "More avocados please", "status": "New" }
+  ],
+  "roasting": [
+    { "name": "Carrots", "temp": "425°F", "time": "20-25 min", "link": "https://example.com/roasted-carrots" },
+    { "name": "Broccoli", "temp": "425°F", "time": "15-18 min", "link": null },
+    { "name": "Whole chicken", "temp": "375°F", "time": "1 hr 20 min (~20 min/lb)", "link": null }
   ]
 }

@@ -32,6 +32,10 @@ publish) and renders into the DOM with small page-specific scripts in `js/`.
   separate print route.
 - `meal.html?id=<mealId>` — ingredients, prep tasks, recipe link. No cook-steps section (Batch 5,
   not yet in the schema).
+- `roasting.html` (Work Order 4E) — a read-only "Roasting" table (name, temp, time, and a
+  tappable link when the row has one) from the snapshot's `roasting` array. Absent or empty
+  `roasting` shows a plain empty state, same pattern as Requests. Notes are never in the
+  snapshot, so the page never has any to show (see HANDOFF.md).
 - `requests.html` — requests Alex submitted and their status, plus a link to the Google Form.
   Always empty today (the Sheet→snapshot sync doesn't exist yet) — the empty state is the one
   that matters for now.
