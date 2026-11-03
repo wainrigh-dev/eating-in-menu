@@ -1,5 +1,7 @@
 # Eating In — Alex Menu Site
 
+**Live:** https://eating-in-menu.vercel.app/
+
 The public-facing menu site for Alex, built from a snapshot published by the (private)
 `eating-in` app. See `HANDOFF.md` for the full spec (schema, pages, what's in/out of scope) and
 that repo's `docs/batch-4-discovery.md` / `work-orders/2026-11-03-batch4-work-orders.md` for the

@@ -1,11 +1,32 @@
 # Eating In — Alex Menu Site: handoff for a new session
 
-This is a fresh build in its own repo. You do **not** need access to the private `eating-in` app
-repo to do this work — everything you need is below or in `fixtures/sample-snapshot.json` in this
-repo. If you want the full backstory anyway, the source documents are
-`wainrigh-dev/eating-in`'s `docs/batch-4-discovery.md` and
+**Live site:** https://eating-in-menu.vercel.app/ — built and deployed (Nov 3 2026), currently
+showing the first real published snapshot (see "Status" below). You do **not** need access to the
+private `eating-in` app repo to do this work — everything you need is below or in
+`fixtures/sample-snapshot.json` in this repo. If you want the full backstory anyway, the source
+documents are `wainrigh-dev/eating-in`'s `docs/batch-4-discovery.md` and
 `work-orders/2026-11-03-batch4-work-orders.md` — this doc is a self-contained summary of both plus
 everything decided since.
+
+## Status (Nov 3 2026)
+
+- Site is built and live at the URL above: This week / Look ahead week picker, meal detail,
+  Requests page, one-page print view, Add-to-Home-Screen manifest + icons, `noindex` +
+  `robots.txt`. Playwright smoke test (`test/smoke.mjs`, 21 checks) passing, run against
+  `fixtures/sample-snapshot.json` (decoupled from whatever's live in `data/snapshot.json` so the
+  suite stays stable across real publishes).
+- `data/snapshot.json` holds the first real "Publish to Alex" output (published 2026-11-03,
+  7 upcoming weeks). Every meal's `cookName` is `null` — no cook is assigned to any planned meal
+  in the app yet, not a site bug.
+- The Vercel project (`eating-in-menu`) had to be created manually by Paul from the dashboard —
+  the earlier "imported as a project" note below turned out not to have actually happened (no
+  deploys existed when checked). If a future snapshot push doesn't show up on the live site,
+  check the Vercel project still exists and is connected to this repo's `main` branch before
+  assuming the site code is broken.
+- **Not verified from Claude Code:** this session's outbound network policy blocks
+  `*.vercel.app`, so no Claude Code session has loaded the live URL to confirm it actually
+  renders — Paul provided the URL but hasn't yet confirmed what it shows. A full QC pass (iPhone,
+  print view, etc.) against the acceptance criteria below is still outstanding.
 
 ## What this is
 
@@ -24,8 +45,8 @@ that's how Alex knows how fresh it is.
 
 - **This repo**: `https://github.com/wainrigh-dev/eating-in-menu` (public). Currently has only a
   placeholder README — nothing else has been built. Claude Code has confirmed push access to it.
-- **Vercel**: connected to the GitHub account, this repo imported as a project. No real deploy
-  yet (nothing to deploy).
+- **Vercel**: project created and connected to this repo's `main` branch, auto-deploying on
+  push. Live at https://eating-in-menu.vercel.app/.
 - **Requests Google Form**: https://forms.gle/gYb5xSauzit6CBK88
 - **Requests Google Sheet**: https://docs.google.com/spreadsheets/d/1bvbRdmz0luV3GMRe_CASLJFABV-ISIy7ncOAMlxd67k/edit?resourcekey=&gid=1399392972#gid=1399392972
   (has a manually-added "Status" column: New / Added / Not this time)
