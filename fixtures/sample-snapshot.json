@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-11-03T18:42:00Z",
+  "weeks": [
+    {
+      "weekId": "2026-11-01",
+      "meals": [
+        {
+          "id": "m1-Tue",
+          "name": "Weeknight Fajitas",
+          "day": "Tue",
+          "cookName": "Jordan",
+          "status": null,
+          "recipe": {
+            "name": "Weeknight Fajitas",
+            "sourceUrl": "https://example.com/fajitas",
+            "ingredients": [
+              { "name": "Bell pepper", "qty": "2", "category": "produce" },
+              { "name": "Yellow onion", "qty": "1", "category": "produce" },
+              { "name": "Chicken thighs", "qty": "1.5 lb", "category": "protein" },
+              { "name": "Flour tortillas", "qty": "1 pack", "category": "pantry" }
+            ],
+            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"]
+          }
+        },
+        {
+          "id": "m2-Sun",
+          "name": "Leftover Soup Night",
+          "day": "Sun",
+          "cookName": "Sam",
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "Egg noodles", "qty": "8 oz", "category": "pantry" },
+              { "name": "Carrots", "qty": "3", "category": "produce" }
+            ],
+            "prepTasks": []
+          }
+        },
+        {
+          "id": "m2-Wed",
+          "name": "Leftover Soup Night",
+          "day": "Wed",
+          "cookName": "Sam",
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "Egg noodles", "qty": "8 oz", "category": "pantry" },
+              { "name": "Carrots", "qty": "3", "category": "produce" }
+            ],
+            "prepTasks": []
+          }
+        },
+        {
+          "id": "m3-Fri",
+          "name": "Taco Night (requested)",
+          "day": "Fri",
+          "cookName": null,
+          "status": "Added",
+          "recipe": null
+        }
+      ],
+      "prep": [
+        { "text": "Roast fajita veg (peppers, mushrooms, onion)", "recipe": "Weeknight Fajitas", "done": false }
+      ]
+    },
+    {
+      "weekId": "2026-11-08",
+      "meals": [
+        {
+          "id": "m4-Mon",
+          "name": "Weeknight Fajitas",
+          "day": "Mon",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Weeknight Fajitas",
+            "sourceUrl": "https://example.com/fajitas",
+            "ingredients": [
+              { "name": "Bell pepper", "qty": "2", "category": "produce" },
+              { "name": "Yellow onion", "qty": "1", "category": "produce" }
+            ],
+            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"]
+          }
+        }
+      ],
+      "prep": []
+    }
+  ],
+  "requests": [
+    { "id": "req-1", "kind": "meal", "week": "2026-11-01", "note": "Can we do tacos again?", "status": "Added" },
+    { "id": "req-2", "kind": "ingredient", "note": "More avocados please", "status": "New" }
+  ]
+}
