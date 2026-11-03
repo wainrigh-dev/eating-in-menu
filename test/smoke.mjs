@@ -105,6 +105,25 @@ await page.click("#print-btn");
 await page.waitForTimeout(100);
 check("print sheet populated", (await page.locator("#print-sheet").innerHTML()).includes("Weeknight Fajitas"));
 
+// 9b. Print layout: the rest of the app is removed from layout (display:none), not just hidden
+// behind visibility, so a tall on-screen page can never spill a blank second page onto print.
+// Regression check for the Nov 2 2026 "2-page / blank second page" bug: visibility:hidden left
+// the real height of header/nav/main/footer in the print flow, which overflowed one US Letter
+// page once the real (6-week) published snapshot was loaded — the 2-week sample fixture here
+// doesn't reproduce the overflow by itself, so this checks the mechanism directly instead of
+// relying on a content-height threshold that could stop catching it as the fixture grows.
+await page.emulateMedia({ media: "print" });
+const printDisplay = await page.evaluate(() => ({
+  header: getComputedStyle(document.querySelector("header.site")).display,
+  nav: getComputedStyle(document.querySelector("nav.tabs")).display,
+  main: getComputedStyle(document.querySelector("main.wrap")).display,
+  footer: getComputedStyle(document.querySelector("footer.site")).display,
+  printSheet: getComputedStyle(document.getElementById("print-sheet")).display,
+}));
+check("print media removes header/nav/main/footer from layout", [printDisplay.header, printDisplay.nav, printDisplay.main, printDisplay.footer].every((d) => d === "none"));
+check("print media shows the print sheet", printDisplay.printSheet === "block");
+await page.emulateMedia({ media: null });
+
 // 10. noindex + robots present.
 await page.goto(`${base}/index.html`);
 check("noindex meta present", (await page.locator('meta[name="robots"]').getAttribute("content")) === "noindex, nofollow");

@@ -230,14 +230,11 @@ footer.site {
 #print-sheet { display: none; }
 
 @media print {
-  body * { visibility: hidden; }
-  #print-sheet, #print-sheet * { visibility: visible; }
-  #print-sheet {
-    display: block;
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-  }
+  /* display:none removes these from layout entirely, instead of just hiding them in place —
+     visibility:hidden left their full on-screen height in the flow, which spilled onto a blank
+     second page once there was more than one printable page's worth of app content underneath. */
+  header.site, nav.tabs, main.wrap, footer.site { display: none; }
+  #print-sheet { display: block; }
   @page { size: letter portrait; margin: 0.5in; }
   #print-sheet h1 { font-size: 20px; margin: 0 0 2px; }
   #print-sheet .pupdated { font-size: 11px; color: #555; margin-bottom: 10px; }
