@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Requests — Eating In</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#b5583f" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site">
+    <h1>Requests</h1>
+    <div class="updated" id="updated">Loading…</div>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html" data-tab="menu">Menu</a>
+    <a href="requests.html" data-tab="requests" class="active">Requests</a>
+  </nav>
+
+  <main class="wrap">
+    <div class="card">
+      Want a different meal, or an ingredient added? Use the request form —
+      it goes straight to Paul.
+      <br />
+      <a class="recipe-link" href="https://forms.gle/gYb5xSauzit6CBK88" target="_blank" rel="noopener noreferrer">
+        Open the request form &rarr;
+      </a>
+    </div>
+
+    <div class="section-title">Your requests</div>
+    <div id="requests-body"><div class="empty">Loading…</div></div>
+  </main>
+
+  <footer class="site">Eating In — read-only menu for Alex</footer>
+  <script src="js/app.js"></script>
+  <script src="js/requests.js"></script>
+</body>
+</html>
