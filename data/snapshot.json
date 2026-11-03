@@ -1,98 +1,531 @@
 {
   "schemaVersion": 1,
-  "publishedAt": "2026-11-03T18:42:00Z",
+  "publishedAt": "2026-11-03T04:09:00.981Z",
   "weeks": [
     {
       "weekId": "2026-11-01",
       "meals": [
         {
-          "id": "m1-Tue",
-          "name": "Weeknight Fajitas",
-          "day": "Tue",
-          "cookName": "Jordan",
-          "status": null,
-          "recipe": {
-            "name": "Weeknight Fajitas",
-            "sourceUrl": "https://example.com/fajitas",
-            "ingredients": [
-              { "name": "Bell pepper", "qty": "2", "category": "produce" },
-              { "name": "Yellow onion", "qty": "1", "category": "produce" },
-              { "name": "Chicken thighs", "qty": "1.5 lb", "category": "protein" },
-              { "name": "Flour tortillas", "qty": "1 pack", "category": "pantry" }
-            ],
-            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"]
-          }
-        },
-        {
-          "id": "m2-Sun",
-          "name": "Leftover Soup Night",
-          "day": "Sun",
-          "cookName": "Sam",
-          "status": null,
-          "recipe": {
-            "name": "Chicken Noodle Soup",
-            "sourceUrl": null,
-            "ingredients": [
-              { "name": "Egg noodles", "qty": "8 oz", "category": "pantry" },
-              { "name": "Carrots", "qty": "3", "category": "produce" }
-            ],
-            "prepTasks": []
-          }
-        },
-        {
-          "id": "m2-Wed",
-          "name": "Leftover Soup Night",
-          "day": "Wed",
-          "cookName": "Sam",
-          "status": null,
-          "recipe": {
-            "name": "Chicken Noodle Soup",
-            "sourceUrl": null,
-            "ingredients": [
-              { "name": "Egg noodles", "qty": "8 oz", "category": "pantry" },
-              { "name": "Carrots", "qty": "3", "category": "produce" }
-            ],
-            "prepTasks": []
-          }
-        },
-        {
-          "id": "m3-Fri",
-          "name": "Taco Night (requested)",
-          "day": "Fri",
+          "id": "yt65a4q-Mon",
+          "name": "Pesto Pasta with Roasted Veg",
+          "day": "Mon",
           "cookName": null,
-          "status": "Added",
+          "status": null,
+          "recipe": {
+            "name": "Pesto Pasta with Roasted Veg",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "butternut squash", "qty": "1 small (about 3 cups cubed)", "category": "produce" },
+              { "name": "zucchini", "qty": "2 medium", "category": "produce" },
+              { "name": "red bell pepper", "qty": "1 large", "category": "produce" },
+              { "name": "red onion", "qty": "1 small", "category": "produce" },
+              { "name": "basil pesto", "qty": "1/2 cup", "category": "fridge" },
+              { "name": "kalamata olives", "qty": "1/2 cup", "category": "pantry" },
+              { "name": "pasta", "qty": "12 oz", "category": "pantry" },
+              { "name": "olive oil", "qty": "2 tbsp", "category": "pantry" },
+              { "name": "salt and pepper", "qty": "to taste", "category": "pantry" },
+              { "name": "red wine vinegar or apple cider vinegar", "qty": "1/2 cup", "category": "pantry" },
+              { "name": "sugar", "qty": "1 tsp", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Peel, seed and cube butternut squash",
+              "Slice zucchini into half-moons",
+              "Chop red bell pepper",
+              "Thinly slice red onion",
+              "Pickle sliced onion in vinegar, sugar and salt",
+              "Halve or drain Kalamata olives",
+              "Preheat oven to 425F"
+            ]
+          }
+        },
+        {
+          "id": "yt65a4q-Tue",
+          "name": "Pesto Pasta with Roasted Veg",
+          "day": "Tue",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Pesto Pasta with Roasted Veg",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "butternut squash", "qty": "1 small (about 3 cups cubed)", "category": "produce" },
+              { "name": "zucchini", "qty": "2 medium", "category": "produce" },
+              { "name": "red bell pepper", "qty": "1 large", "category": "produce" },
+              { "name": "red onion", "qty": "1 small", "category": "produce" },
+              { "name": "basil pesto", "qty": "1/2 cup", "category": "fridge" },
+              { "name": "kalamata olives", "qty": "1/2 cup", "category": "pantry" },
+              { "name": "pasta", "qty": "12 oz", "category": "pantry" },
+              { "name": "olive oil", "qty": "2 tbsp", "category": "pantry" },
+              { "name": "salt and pepper", "qty": "to taste", "category": "pantry" },
+              { "name": "red wine vinegar or apple cider vinegar", "qty": "1/2 cup", "category": "pantry" },
+              { "name": "sugar", "qty": "1 tsp", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Peel, seed and cube butternut squash",
+              "Slice zucchini into half-moons",
+              "Chop red bell pepper",
+              "Thinly slice red onion",
+              "Pickle sliced onion in vinegar, sugar and salt",
+              "Halve or drain Kalamata olives",
+              "Preheat oven to 425F"
+            ]
+          }
+        },
+        {
+          "id": "yt65a4q-Thu",
+          "name": "Pesto Pasta with Roasted Veg",
+          "day": "Thu",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Pesto Pasta with Roasted Veg",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "butternut squash", "qty": "1 small (about 3 cups cubed)", "category": "produce" },
+              { "name": "zucchini", "qty": "2 medium", "category": "produce" },
+              { "name": "red bell pepper", "qty": "1 large", "category": "produce" },
+              { "name": "red onion", "qty": "1 small", "category": "produce" },
+              { "name": "basil pesto", "qty": "1/2 cup", "category": "fridge" },
+              { "name": "kalamata olives", "qty": "1/2 cup", "category": "pantry" },
+              { "name": "pasta", "qty": "12 oz", "category": "pantry" },
+              { "name": "olive oil", "qty": "2 tbsp", "category": "pantry" },
+              { "name": "salt and pepper", "qty": "to taste", "category": "pantry" },
+              { "name": "red wine vinegar or apple cider vinegar", "qty": "1/2 cup", "category": "pantry" },
+              { "name": "sugar", "qty": "1 tsp", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Peel, seed and cube butternut squash",
+              "Slice zucchini into half-moons",
+              "Chop red bell pepper",
+              "Thinly slice red onion",
+              "Pickle sliced onion in vinegar, sugar and salt",
+              "Halve or drain Kalamata olives",
+              "Preheat oven to 425F"
+            ]
+          }
+        },
+        {
+          "id": "6e4zejh-Wed",
+          "name": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage",
+          "day": "Wed",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "yams / white sweet potatoes", "qty": "", "category": "produce" },
+              { "name": "dried black beans", "qty": "", "category": "pantry" },
+              { "name": "chicken sausage", "qty": "", "category": "protein" }
+            ],
+            "prepTasks": [
+              "Roast yams whole: pierce, oil + coarse salt, 400°F for 45–60 min",
+              "Instant Pot black beans"
+            ]
+          }
+        },
+        {
+          "id": "p6ui0sl-Tue",
+          "name": "Quick chicken tacos",
+          "day": "Tue",
+          "cookName": null,
+          "status": null,
           "recipe": null
         }
       ],
       "prep": [
-        { "text": "Roast fajita veg (peppers, mushrooms, onion)", "recipe": "Weeknight Fajitas", "done": false }
+        { "text": "Peel, seed and cube butternut squash", "recipe": "Pesto Pasta with Roasted Veg", "done": true },
+        { "text": "Slice zucchini into half-moons", "recipe": "Pesto Pasta with Roasted Veg", "done": true },
+        { "text": "Chop red bell pepper", "recipe": "Pesto Pasta with Roasted Veg", "done": true },
+        { "text": "Thinly slice red onion", "recipe": "Pesto Pasta with Roasted Veg", "done": true },
+        { "text": "Pickle sliced onion in vinegar, sugar and salt", "recipe": "Pesto Pasta with Roasted Veg", "done": true },
+        { "text": "Halve or drain Kalamata olives", "recipe": "Pesto Pasta with Roasted Veg", "done": true },
+        { "text": "Preheat oven to 425F", "recipe": "Pesto Pasta with Roasted Veg", "done": false },
+        { "text": "Roast yams whole: pierce, oil + coarse salt, 400°F for 45–60 min", "recipe": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage", "done": false },
+        { "text": "Instant Pot black beans", "recipe": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage", "done": false }
       ]
     },
     {
       "weekId": "2026-11-08",
       "meals": [
         {
-          "id": "m4-Mon",
-          "name": "Weeknight Fajitas",
+          "id": "mnmrg4y",
+          "name": "Chicken Noodle Soup & Bread",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup & Bread",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "whole chicken", "qty": "3 lb", "category": "protein" },
+              { "name": "carrot", "qty": "extra for soup", "category": "produce" },
+              { "name": "celery", "qty": "extra for soup", "category": "produce" },
+              { "name": "yellow onion", "qty": "2", "category": "produce" },
+              { "name": "garlic", "qty": "", "category": "produce" },
+              { "name": "rosemary", "qty": "", "category": "produce" },
+              { "name": "thyme", "qty": "", "category": "produce" },
+              { "name": "sage", "qty": "", "category": "produce" },
+              { "name": "egg noodles", "qty": "", "category": "pantry" },
+              { "name": "crusty bread", "qty": "", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Make chicken stock (stove top; consider cutting bone broth with more water)",
+              "Shred chicken",
+              "Chop extra carrots and celery for the soup",
+              "Cook noodles"
+            ]
+          }
+        }
+      ],
+      "prep": []
+    },
+    {
+      "weekId": "2026-11-15",
+      "meals": [
+        {
+          "id": "dtlo18o",
+          "name": "Chicken Tacos",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Tacos",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "shredded chicken", "qty": "from whole chicken", "category": "protein" },
+              { "name": "tortillas", "qty": "", "category": "pantry" },
+              { "name": "lil pepper bag", "qty": "", "category": "produce" },
+              { "name": "mushrooms", "qty": "", "category": "produce" },
+              { "name": "yellow onion", "qty": "", "category": "produce" },
+              { "name": "swiss chard", "qty": "", "category": "produce" },
+              { "name": "avocado", "qty": "", "category": "produce" },
+              { "name": "cilantro", "qty": "", "category": "produce" },
+              { "name": "fresh salsa", "qty": "", "category": "produce" }
+            ],
+            "prepTasks": [
+              "Roast fajita veg (peppers, mushrooms, onion)"
+            ]
+          }
+        },
+        {
+          "id": "ivywlz0",
+          "name": "Chicken Noodle Soup & Bread",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup & Bread",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "whole chicken", "qty": "3 lb", "category": "protein" },
+              { "name": "carrot", "qty": "extra for soup", "category": "produce" },
+              { "name": "celery", "qty": "extra for soup", "category": "produce" },
+              { "name": "yellow onion", "qty": "2", "category": "produce" },
+              { "name": "garlic", "qty": "", "category": "produce" },
+              { "name": "rosemary", "qty": "", "category": "produce" },
+              { "name": "thyme", "qty": "", "category": "produce" },
+              { "name": "sage", "qty": "", "category": "produce" },
+              { "name": "egg noodles", "qty": "", "category": "pantry" },
+              { "name": "crusty bread", "qty": "", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Make chicken stock (stove top; consider cutting bone broth with more water)",
+              "Shred chicken",
+              "Chop extra carrots and celery for the soup",
+              "Cook noodles"
+            ]
+          }
+        }
+      ],
+      "prep": []
+    },
+    {
+      "weekId": "2026-11-22",
+      "meals": [
+        {
+          "id": "e9musw5-Mon",
+          "name": "Crispy Halloumi Salad with Dates & Arugula",
           "day": "Mon",
           "cookName": null,
           "status": null,
           "recipe": {
-            "name": "Weeknight Fajitas",
-            "sourceUrl": "https://example.com/fajitas",
+            "name": "Crispy Halloumi Salad with Dates & Arugula",
+            "sourceUrl": null,
             "ingredients": [
-              { "name": "Bell pepper", "qty": "2", "category": "produce" },
-              { "name": "Yellow onion", "qty": "1", "category": "produce" }
+              { "name": "halloumi", "qty": "8–12 oz", "category": "fridge" },
+              { "name": "butter", "qty": "", "category": "fridge" },
+              { "name": "arugula (or arugula-spinach mix)", "qty": "5 oz", "category": "produce" },
+              { "name": "fresh parsley", "qty": "", "category": "produce" },
+              { "name": "scallions", "qty": "", "category": "produce" },
+              { "name": "medjool dates (pitted)", "qty": "", "category": "pantry" },
+              { "name": "slivered almonds", "qty": "", "category": "pantry" },
+              { "name": "olive oil", "qty": "", "category": "pantry" },
+              { "name": "red wine vinegar", "qty": "", "category": "pantry" },
+              { "name": "honey", "qty": "", "category": "pantry" },
+              { "name": "dijon", "qty": "", "category": "pantry" },
+              { "name": "paprika", "qty": "", "category": "pantry" },
+              { "name": "cinnamon", "qty": "", "category": "pantry" }
             ],
-            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"]
+            "prepTasks": [
+              "Make the dressing",
+              "Pre-cut the halloumi",
+              "Chop dates, parsley, scallions; prep salad parts"
+            ]
+          }
+        },
+        {
+          "id": "e9musw5-Thu",
+          "name": "Crispy Halloumi Salad with Dates & Arugula",
+          "day": "Thu",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Crispy Halloumi Salad with Dates & Arugula",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "halloumi", "qty": "8–12 oz", "category": "fridge" },
+              { "name": "butter", "qty": "", "category": "fridge" },
+              { "name": "arugula (or arugula-spinach mix)", "qty": "5 oz", "category": "produce" },
+              { "name": "fresh parsley", "qty": "", "category": "produce" },
+              { "name": "scallions", "qty": "", "category": "produce" },
+              { "name": "medjool dates (pitted)", "qty": "", "category": "pantry" },
+              { "name": "slivered almonds", "qty": "", "category": "pantry" },
+              { "name": "olive oil", "qty": "", "category": "pantry" },
+              { "name": "red wine vinegar", "qty": "", "category": "pantry" },
+              { "name": "honey", "qty": "", "category": "pantry" },
+              { "name": "dijon", "qty": "", "category": "pantry" },
+              { "name": "paprika", "qty": "", "category": "pantry" },
+              { "name": "cinnamon", "qty": "", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Make the dressing",
+              "Pre-cut the halloumi",
+              "Chop dates, parsley, scallions; prep salad parts"
+            ]
+          }
+        }
+      ],
+      "prep": []
+    },
+    {
+      "weekId": "2026-12-06",
+      "meals": [
+        {
+          "id": "1decnnh",
+          "name": "Tofu & Green Beans with Chile Crisp (Sheet Pan)",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Tofu & Green Beans with Chile Crisp (Sheet Pan)",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "extra firm tofu", "qty": "14 oz", "category": "fridge" },
+              { "name": "green beans", "qty": "3/4 lb", "category": "produce" },
+              { "name": "chile crisp", "qty": "3+ tbsp", "category": "pantry" },
+              { "name": "soy sauce", "qty": "3 tbsp", "category": "pantry" },
+              { "name": "chinese black vinegar", "qty": "1.5 tbsp", "category": "pantry" },
+              { "name": "sesame oil", "qty": "1.5 tsp", "category": "pantry" },
+              { "name": "honey", "qty": "1 tsp", "category": "pantry" },
+              { "name": "neutral oil", "qty": "", "category": "pantry" },
+              { "name": "garlic", "qty": "2 cloves", "category": "produce" },
+              { "name": "fresh ginger", "qty": "1 tbsp", "category": "produce" },
+              { "name": "scallions", "qty": "", "category": "produce" },
+              { "name": "cilantro", "qty": "", "category": "produce" },
+              { "name": "rice (for serving)", "qty": "", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Pre-cut/trim green beans",
+              "Whisk marinade; marinate tofu while oven heats to 450°F",
+              "Roast 20–25 min until green beans blister"
+            ]
+          }
+        },
+        {
+          "id": "jk1yigy",
+          "name": "Veggie Broccoli Lo Mein",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Veggie Broccoli Lo Mein",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "lo mein noodles", "qty": "", "category": "pantry" },
+              { "name": "vegetable broth", "qty": "1/4 cup", "category": "pantry" },
+              { "name": "soy sauce", "qty": "3 tbsp", "category": "pantry" },
+              { "name": "brown sugar", "qty": "2 tbsp", "category": "pantry" },
+              { "name": "sesame oil", "qty": "1 tbsp", "category": "pantry" },
+              { "name": "broccoli", "qty": "lots", "category": "produce" },
+              { "name": "carrot", "qty": "", "category": "produce" },
+              { "name": "red bell pepper", "qty": "", "category": "produce" },
+              { "name": "yellow onion", "qty": "1 medium", "category": "produce" },
+              { "name": "garlic", "qty": "4 cloves", "category": "produce" },
+              { "name": "swiss chard", "qty": "", "category": "produce" },
+              { "name": "tofu", "qty": "", "category": "fridge" }
+            ],
+            "prepTasks": [
+              "Make veggie broth from bouillon",
+              "Whisk lo mein sauce",
+              "Cook noodles",
+              "Air-fry tofu"
+            ]
+          }
+        },
+        {
+          "id": "995phx6",
+          "name": "Veggie Tofu Rice Bowl",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Veggie Tofu Rice Bowl",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "tofu (for par-frying/baking)", "qty": "", "category": "fridge" },
+              { "name": "rice", "qty": "", "category": "pantry" },
+              { "name": "asian bbq sauce", "qty": "", "category": "pantry" },
+              { "name": "shiitake mushrooms", "qty": "", "category": "produce" },
+              { "name": "yellow onion", "qty": "", "category": "produce" },
+              { "name": "celery", "qty": "", "category": "produce" },
+              { "name": "red bell pepper", "qty": "", "category": "produce" },
+              { "name": "watermelon radish", "qty": "", "category": "produce" }
+            ],
+            "prepTasks": [
+              "Veggie bake sheet (mushroom, pepper, onion, celery)",
+              "Air-fry tofu",
+              "Portion and freeze extra rice"
+            ]
+          }
+        },
+        {
+          "id": "bn1sub6",
+          "name": "Crispy Tofu with Blistered Snap Peas",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Crispy Tofu with Blistered Snap Peas",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "tofu", "qty": "", "category": "fridge" },
+              { "name": "sugar snap peas", "qty": "", "category": "produce" }
+            ],
+            "prepTasks": [
+              "Air-fry or par-fry tofu"
+            ]
+          }
+        },
+        {
+          "id": "irutfxh",
+          "name": "Yummy Eggplant (Chile-Crisp Glazed)",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Yummy Eggplant (Chile-Crisp Glazed)",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "eggplant", "qty": "1", "category": "produce" },
+              { "name": "garlic", "qty": "2–3 cloves", "category": "produce" },
+              { "name": "fresh ginger", "qty": "1 tsp minced", "category": "produce" },
+              { "name": "scallions", "qty": "2", "category": "produce" },
+              { "name": "neutral oil", "qty": "", "category": "pantry" },
+              { "name": "soy sauce", "qty": "1 tbsp", "category": "pantry" },
+              { "name": "black or rice vinegar", "qty": "1 tbsp", "category": "pantry" },
+              { "name": "sugar", "qty": "1 tsp", "category": "pantry" },
+              { "name": "chile crisp or doubanjiang", "qty": "1–2 tsp", "category": "pantry" },
+              { "name": "cornstarch", "qty": "1 tsp", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Cut eggplant into thick matchsticks; salt 10–15 min, squeeze dry",
+              "Mix sauce in a small bowl ahead"
+            ]
+          }
+        }
+      ],
+      "prep": []
+    },
+    {
+      "weekId": "2026-12-13",
+      "meals": [
+        {
+          "id": "a6ouhc4",
+          "name": "Grilled Cheese & Tomato Soup",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Grilled Cheese & Tomato Soup",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "bread", "qty": "", "category": "pantry" },
+              { "name": "tomato soup", "qty": "", "category": "pantry" },
+              { "name": "cheese to shred", "qty": "", "category": "fridge" },
+              { "name": "butter", "qty": "", "category": "fridge" }
+            ],
+            "prepTasks": []
+          }
+        },
+        {
+          "id": "ibyg7qd",
+          "name": "Chicken Rice Bowl",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Rice Bowl",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "rice", "qty": "", "category": "pantry" },
+              { "name": "beans", "qty": "1 can", "category": "pantry" },
+              { "name": "shredded chicken", "qty": "from whole chicken", "category": "protein" },
+              { "name": "lil pepper bag", "qty": "", "category": "produce" },
+              { "name": "mushrooms", "qty": "portabella, whole", "category": "produce" },
+              { "name": "yellow onion", "qty": "", "category": "produce" },
+              { "name": "swiss chard", "qty": "", "category": "produce" },
+              { "name": "avocado", "qty": "", "category": "produce" },
+              { "name": "fresh salsa", "qty": "", "category": "produce" }
+            ],
+            "prepTasks": [
+              "Cook rice (Instant Pot)",
+              "Roast fajita veg (peppers, mushrooms, onion)"
+            ]
+          }
+        },
+        {
+          "id": "tty3rdk",
+          "name": "Chicken Noodle Soup & Bread",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup & Bread",
+            "sourceUrl": null,
+            "ingredients": [
+              { "name": "whole chicken", "qty": "3 lb", "category": "protein" },
+              { "name": "carrot", "qty": "extra for soup", "category": "produce" },
+              { "name": "celery", "qty": "extra for soup", "category": "produce" },
+              { "name": "yellow onion", "qty": "2", "category": "produce" },
+              { "name": "garlic", "qty": "", "category": "produce" },
+              { "name": "rosemary", "qty": "", "category": "produce" },
+              { "name": "thyme", "qty": "", "category": "produce" },
+              { "name": "sage", "qty": "", "category": "produce" },
+              { "name": "egg noodles", "qty": "", "category": "pantry" },
+              { "name": "crusty bread", "qty": "", "category": "pantry" }
+            ],
+            "prepTasks": [
+              "Make chicken stock (stove top; consider cutting bone broth with more water)",
+              "Shred chicken",
+              "Chop extra carrots and celery for the soup",
+              "Cook noodles"
+            ]
           }
         }
       ],
       "prep": []
     }
   ],
-  "requests": [
-    { "id": "req-1", "kind": "meal", "week": "2026-11-01", "note": "Can we do tacos again?", "status": "Added" },
-    { "id": "req-2", "kind": "ingredient", "note": "More avocados please", "status": "New" }
-  ]
+  "requests": []
 }

@@ -1,5 +1,6 @@
 // Smoke test for the Alex menu site. Serves the repo root as static files, then checks each
-// page against fixtures/sample-snapshot.json (copied to data/snapshot.json for local dev).
+// page against fixtures/sample-snapshot.json — served in place of data/snapshot.json so this
+// test stays stable no matter what's currently published to data/snapshot.json for real.
 // Run: node test/smoke.mjs   (serves on an ephemeral port itself, no separate server needed)
 import { chromium } from "playwright";
 import { createServer } from "http";
@@ -13,6 +14,7 @@ const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css
 const server = createServer(async (req, res) => {
   let p = decodeURIComponent(req.url.split("?")[0]);
   if (p === "/") p = "/index.html";
+  if (p === "/data/snapshot.json") p = "/fixtures/sample-snapshot.json";
   const full = path.join(ROOT, p);
   try {
     const st = await stat(full);
