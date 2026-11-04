@@ -11,7 +11,7 @@ Code skill in this repo does the exact same job from a laptop, any time.
 
 ## What the Shortcut needs to do, in one sentence
 
-Take the snapshot file the app saved, turn it into a dated file name, and hand it to GitHub's
+Pick the snapshot file the app saved, turn it into a dated file name, and hand it to GitHub's
 "create a file" API so it lands in this repo's `snapshots/` folder — the build-time safety check
 (`scripts/build-snapshot.mjs`) then either publishes it to the live site or rejects it.
 
@@ -45,14 +45,17 @@ one periodically.
 Open the **Shortcuts** app → **+** (new shortcut) → rename it **Publish to Alex** (tap the name
 at the top). Add these actions in order:
 
-1. **Receive input from Share Sheet** — this is automatic the moment you add any action that
-   uses "Shortcut Input"; just make sure, in the shortcut's settings (the **ⓧ** icon at top),
-   **"Show in Share Sheet"** is turned on, and under "Share Sheet Types" that **Files** (or
-   "Documents"/"Any") is enabled. This is what lets you share a file into this Shortcut from the
-   Files app.
-2. **Base64 Encode** (search for it in the action library) — set its input to **Shortcut Input**.
-   This turns the snapshot file's bytes into a text string GitHub's API can accept in a JSON
-   body.
+1. **Select File** (search for it in the action library) — in its options, turn off "Select
+   Multiple." When you run this Shortcut, this action pops up the Files browser so you can pick
+   the snapshot yourself; it's one extra tap over a true Share Sheet hand-off, but it works the
+   same way on every iOS version, which a Share Sheet toggle doesn't (its exact wording moves
+   around between iOS releases, and the guidance below didn't match what one person actually saw
+   — if the "Select File" step works for you, don't bother chasing the Share Sheet option
+   described at the end of this section).
+2. **Base64 Encode** (search for it in the action library) — set its input to the **Select
+   File** result from step 1 (tap the input field, then pick that action's output as the
+   variable — don't leave it on "Shortcut Input"). This turns the snapshot file's bytes into a
+   text string GitHub's API can accept in a JSON body.
 3. **Current Date**, then **Format Date** on it — set the format to **Custom** and enter
    `yyyy-MM-dd-HHmm`. This gives you something like `2026-11-04-1530`.
 4. **Text** action — build the file name: `snapshot-` followed by the formatted date (tap into
@@ -83,6 +86,13 @@ at the top). Add these actions in order:
 
 Save the Shortcut.
 
+**Optional, if you want true one-tap-from-Files instead of opening the Shortcut first:** some
+iOS versions let a shortcut appear in the Files/Share Sheet "Share" row for a given file type.
+Look for a settings/info icon on the shortcut (varies: a wrench, an "i," or "...") and look for
+anything mentioning "Share Sheet" — turn it on and allow "Files" or "Any" as a type if asked.
+If you don't see anything like that, or it doesn't work the way this paragraph describes, skip
+it — the "Select File" step above is the real answer and needs no Share Sheet setup at all.
+
 ## Part (c): testing it from the app's "Publish to Alex" download
 
 1. In the app, open the drawer → **Publish to Alex** (you'll need the "Publish to Alex" and
@@ -93,8 +103,9 @@ Save the Shortcut.
    there if you don't see a save prompt.
    - The Shortcut ignores this filename entirely and makes up its own dated name (Part (b),
      steps 3–4) — so it doesn't matter that this name doesn't match what lands in `snapshots/`.
-3. Tap and hold the file in Files, or tap the **Share** icon on it, and look for **Publish to
-   Alex** in the share sheet (scroll the icon row, or tap "More"). Tap it.
+3. Open the **Shortcuts** app and tap **Publish to Alex** to run it (tapping the shortcut itself
+   runs it — you don't need to open it for editing). It'll show the Files browser from step 1;
+   navigate to **Downloads** and pick the file from step 2.
 4. You should see the success notification from step 7 within a few seconds. Then:
    - Check `https://github.com/wainrigh-dev/eating-in-menu/tree/main/snapshots` — a new dated
      file should be there.
