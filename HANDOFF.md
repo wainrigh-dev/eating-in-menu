@@ -15,9 +15,13 @@ everything decided since.
   `robots.txt`. Playwright smoke test (`test/smoke.mjs`, 21 checks) passing, run against
   `fixtures/sample-snapshot.json` (decoupled from whatever's live in `data/snapshot.json` so the
   suite stays stable across real publishes).
-- `data/snapshot.json` holds the first real "Publish to Alex" output (published 2026-11-03,
-  7 upcoming weeks). Every meal's `cookName` is `null` — no cook is assigned to any planned meal
-  in the app yet, not a site bug.
+- `data/snapshot.json` was republished 2026-11-04 (6 upcoming weeks, plus 7 roasting rows) — this
+  is the deliberate second publish meant to exercise Batch 4A acceptance item 5 (a changed meal
+  showing on the site after a publish + deploy) and idea-1793713840073's own item 3 (the roasting
+  table reaching the site). Changed since the 2026-11-03 publish: the Wed meal in the current week
+  is renamed ("...& Chicken Sausage" → "...& Chicken Sausage or Tofu"), and two more weeks each
+  gained an extra meal. Every meal's `cookName` is still `null` — no cook is assigned to any
+  planned meal in the app yet, not a site bug.
 - The Vercel project (`eating-in-menu`) had to be created manually by Paul from the dashboard —
   the earlier "imported as a project" note below turned out not to have actually happened (no
   deploys existed when checked). If a future snapshot push doesn't show up on the live site,
