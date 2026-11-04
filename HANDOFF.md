@@ -39,6 +39,17 @@ everything decided since.
   `*.vercel.app`, so no Claude Code session has loaded the live URL to confirm it actually
   renders — Paul provided the URL but hasn't yet confirmed what it shows. A full QC pass (iPhone,
   print view, etc.) against the acceptance criteria below is still outstanding.
+- **Print view actually fixed now (Nov 4 2026).** The fix bug-1793682060000 described as already
+  built on Nov 3 — switching `@media print` from `visibility:hidden` to `display:none` — was never
+  actually committed to this repo; `css/style.css` still had the original `visibility` toggle,
+  confirmed by reading the full git history (only 8 commits, ever, none of which touch this). That
+  toggle keeps hidden elements in the page's layout height even though invisible, which is what
+  pushed the print output to a second, blank page — a real bug, not an iOS-specific quirk and not
+  a deploy question. Now actually replaced with `body > *:not(#print-sheet) { display: none; }`.
+  `test/smoke.mjs`'s print check was also only verifying `#print-sheet`'s text content, never real
+  layout, so it could never have caught this — it now also asserts every other top-level element's
+  computed `display` is `none` under print media (confirmed: fails against the old CSS, passes with
+  the fix). Still not confirmed on a real iPhone — this session can't load the live URL either.
 
 ## What this is
 

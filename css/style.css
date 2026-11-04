@@ -236,8 +236,7 @@ footer.site {
 #print-sheet { display: none; }
 
 @media print {
-  body * { visibility: hidden; }
-  #print-sheet, #print-sheet * { visibility: visible; }
+  body > *:not(#print-sheet) { display: none; }
   #print-sheet {
     display: block;
     position: absolute;

@@ -114,6 +114,21 @@ await page.click("#print-btn");
 await page.waitForTimeout(100);
 check("print sheet populated", (await page.locator("#print-sheet").innerHTML()).includes("Weeknight Fajitas"));
 
+// 9b. Everything except #print-sheet is actually removed from the print layout (display:none),
+// not just invisible. Checking only #print-sheet's HTML content (9 above) missed the real bug:
+// the old CSS used visibility:hidden on the rest of the page, which keeps hidden elements in the
+// layout (their computed `display` stays block/flex) — so the page still grows taller than one
+// sheet even though only the print-sheet content is visible, producing a second, blank page. This
+// checks actual computed style, not just height, so it isn't sensitive to how much content a given
+// fixture happens to have.
+await page.emulateMedia({ media: "print" });
+const otherDisplays = await page.evaluate(() =>
+  Array.from(document.body.children)
+    .filter(el => el.id !== "print-sheet" && el.tagName !== "SCRIPT")
+    .map(el => getComputedStyle(el).display));
+check("everything but #print-sheet is display:none when printing", otherDisplays.every(d => d === "none"));
+await page.emulateMedia({ media: "screen" });
+
 // 10. noindex + robots present.
 await page.goto(`${base}/index.html`);
 check("noindex meta present", (await page.locator('meta[name="robots"]').getAttribute("content")) === "noindex, nofollow");
