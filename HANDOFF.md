@@ -8,20 +8,28 @@ documents are `wainrigh-dev/eating-in`'s `docs/batch-4-discovery.md` and
 `work-orders/2026-11-03-batch4-work-orders.md` — this doc is a self-contained summary of both plus
 everything decided since.
 
-## Status (Nov 3 2026)
+## Status (Nov 4 2026)
 
 - Site is built and live at the URL above: This week / Look ahead week picker, meal detail,
   Requests page, one-page print view, Add-to-Home-Screen manifest + icons, `noindex` +
-  `robots.txt`. Playwright smoke test (`test/smoke.mjs`, 21 checks) passing, run against
+  `robots.txt`. Playwright smoke test (`test/smoke.mjs`, 26 checks) passing, run against
   `fixtures/sample-snapshot.json` (decoupled from whatever's live in `data/snapshot.json` so the
   suite stays stable across real publishes).
-- `data/snapshot.json` was republished 2026-11-04 (6 upcoming weeks, plus 7 roasting rows) — this
-  is the deliberate second publish meant to exercise Batch 4A acceptance item 5 (a changed meal
-  showing on the site after a publish + deploy) and idea-1793713840073's own item 3 (the roasting
-  table reaching the site). Changed since the 2026-11-03 publish: the Wed meal in the current week
-  is renamed ("...& Chicken Sausage" → "...& Chicken Sausage or Tofu"), and two more weeks each
-  gained an extra meal. Every meal's `cookName` is still `null` — no cook is assigned to any
-  planned meal in the app yet, not a site bug.
+- **Publishing changed Nov 4 2026** (work-orders/2026-11-03-publish-shortcut.md): `data/
+  snapshot.json` is no longer hand-edited/committed directly. It's now a build output —
+  `scripts/build-snapshot.mjs` regenerates it from the newest dated file in `snapshots/` on every
+  Vercel build, after a safety check. See the new "Publishing" paragraph under "What this is"
+  below, and `docs/publish-shortcut.md` for how Paul actually publishes. The Nov 3/4 manual
+  publishes described below predate this and were committed directly to `data/snapshot.json`
+  the old way; the 2026-11-04T03:41 snapshot was carried forward into `snapshots/` as the first
+  dated file so the site keeps showing the same content under the new mechanism.
+- The snapshot content as of the last manual publish (6 upcoming weeks, plus 7 roasting rows):
+  this was the deliberate second publish meant to exercise Batch 4A acceptance item 5 (a changed
+  meal showing on the site after a publish + deploy) and idea-1793713840073's own item 3 (the
+  roasting table reaching the site). Changed since the 2026-11-03 publish: the Wed meal in the
+  current week is renamed ("...& Chicken Sausage" → "...& Chicken Sausage or Tofu"), and two more
+  weeks each gained an extra meal. Every meal's `cookName` is still `null` — no cook is assigned
+  to any planned meal in the app yet, not a site bug.
 - The Vercel project (`eating-in-menu`) had to be created manually by Paul from the dashboard —
   the earlier "imported as a project" note below turned out not to have actually happened (no
   deploys existed when checked). If a future snapshot push doesn't show up on the live site,
@@ -38,12 +46,24 @@ A small, read-only, iPhone-first website that shows "Alex" (a household member) 
 dinner menu — what's planned, who's cooking, ingredients, prep steps, and a link to the full
 recipe. It also has a Requests page linking to a Google Form Alex can use to ask for things.
 
-**It is not live data.** The site reads a JSON snapshot file committed to this repo. A human
-(Paul) publishes a new snapshot from inside the private app periodically; a Claude Code session
-working in the `eating-in` repo commits that file here; Vercel auto-redeploys. The site itself
-never talks to the app, a database, or any API — it's a static/SSG site reading one JSON file.
-"Last updated" should be shown on every page, read from the snapshot's own `publishedAt` field —
+**It is not live data.** The site reads a JSON snapshot file committed to this repo. The site
+itself never talks to the app, a database, or any API — it's a static site reading one JSON
+file. "Last updated" is shown on every page, read from the snapshot's own `publishedAt` field —
 that's how Alex knows how fresh it is.
+
+**Publishing (added Nov 4 2026, work-orders/2026-11-03-publish-shortcut.md in the app repo):**
+Paul publishes a new snapshot from inside the private app, then either taps his one-tap iPhone
+Shortcut (see `docs/publish-shortcut.md`) or hands the file to a Claude Code session running the
+`/publish-to-alex` skill in this repo. Either way, the file lands as a new dated file in
+`snapshots/` (never overwriting an existing one) and gets pushed to `main`. A Vercel build-time
+script (`scripts/build-snapshot.mjs`, wired up via `vercel.json`'s `buildCommand`) then runs
+*before* anything deploys: it picks the newest file in `snapshots/` by filename, checks it's
+valid JSON with the required fields and **none** of the never-show fields (allergies, cautions,
+costs, notes, the household roster, recipe PDFs/photos), and only then writes it to
+`data/snapshot.json` — the file every page actually fetches. If the check fails, the Vercel build
+fails and the previous deployment keeps serving; nothing bad can go live. A Claude Code session
+no longer edits `data/snapshot.json` directly — that file is now a build output, regenerated from
+`snapshots/` on every deploy.
 
 ## What's already done (setup, Nov 3 2026)
 

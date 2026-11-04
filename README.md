@@ -17,12 +17,15 @@ personal notes).
 
 ## Stack
 
-Plain static HTML/CSS/vanilla JS — no framework, no build step. Chosen over Next.js/Vite because
-the whole site is three pages reading one JSON file; a build step would add tooling for no real
-benefit, and "no build step" means Paul (or any future Claude Code session) can edit a file and
-push, with Vercel serving it as-is. Each page fetches `data/snapshot.json` client-side at load
-time (not a true static-generate, but equivalent in practice since the file only changes on
-publish) and renders into the DOM with small page-specific scripts in `js/`.
+Plain static HTML/CSS/vanilla JS — no framework. Chosen over Next.js/Vite because the whole site
+is a handful of pages reading one JSON file; a framework would add tooling for no real benefit.
+Each page fetches `data/snapshot.json` client-side at load time and renders into the DOM with
+small page-specific scripts in `js/`.
+
+There **is** a build step as of Nov 4 2026 (`scripts/build-snapshot.mjs`, run via `vercel.json`'s
+`buildCommand`) — but it's a safety gate, not a framework compile step: it validates the newest
+file in `snapshots/` and writes it to `data/snapshot.json`, never touching the HTML/CSS/JS. See
+"Publishing a new snapshot" below.
 
 ## Pages
 
@@ -42,14 +45,26 @@ publish) and renders into the DOM with small page-specific scripts in `js/`.
 
 ## Data
 
-- `data/snapshot.json` is the file the site reads. A Claude Code session working in the private
-  `eating-in` repo replaces this file with a real published snapshot and pushes; Vercel
-  redeploys (~1 min). Until a real snapshot exists, it's seeded from `fixtures/sample-snapshot.json`
-  (copy, not a symlink — keep `fixtures/` as the untouched reference copy for development, and
-  treat `data/snapshot.json` as the one that gets overwritten on every publish).
-- `fixtures/sample-snapshot.json` — covers a plain meal, a multi-day split meal, a meal with no
-  recipe, a meal with no cook, a recipe with no `sourceUrl`, and non-null request statuses (the
-  Requests "confirmed" UI state, which no real snapshot produces yet).
+- `data/snapshot.json` is the file the site reads client-side. It's a **build output**, not
+  something anyone edits or commits directly — `scripts/build-snapshot.mjs` regenerates it from
+  the newest file in `snapshots/` on every build.
+- `snapshots/` holds one dated file per publish (`snapshot-YYYY-MM-DD-HHMM.json`), oldest to
+  newest by filename, never overwritten. The `/publish-to-alex` Claude Code skill prunes this to
+  the newest 20 each time it publishes; the iPhone Shortcut doesn't prune (not worth the extra
+  GitHub API calls for a Shortcut), so it's fine for this folder to grow when only the Shortcut
+  is used — nothing reads anything but the newest file.
+- `fixtures/sample-snapshot.json` — untouched reference fixture for the smoke test, covers a
+  plain meal, a multi-day split meal, a meal with no recipe, a meal with no cook, a recipe with
+  no `sourceUrl`, and non-null request statuses (the Requests "confirmed" UI state, which no
+  real snapshot produces yet). Never used as live data.
+
+## Publishing a new snapshot
+
+See `docs/publish-shortcut.md` for the full walkthrough (building Paul's one-tap iPhone
+Shortcut) and `.claude/skills/publish-to-alex/` for the Claude Code fallback skill. Either path
+drops a new dated file into `snapshots/`; `scripts/build-snapshot.mjs` does the actual validation
+and gate at build time — a bad file fails the Vercel build and the site keeps serving the
+previous good snapshot.
 
 ## Privacy
 
@@ -64,21 +79,26 @@ app-like icon and standalone window. Icons are a plain placeholder "E" mark — 
 
 ## Local dev
 
-No build step — just serve the directory and open it:
+The pages themselves still need no build step — just serve the directory and open it:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-then visit `http://localhost:8000/index.html`.
+then visit `http://localhost:8000/index.html`. To test a snapshot going through the publish
+guard before it reaches `data/snapshot.json`, run `npm run build` (runs
+`scripts/build-snapshot.mjs` against whatever's newest in `snapshots/`).
 
 ## Testing
 
-`test/smoke.mjs` — a Playwright smoke test over the static files (served locally), checking the
-menu renders from the fixture data, the week picker switches weeks, meal detail renders
-ingredients/prep/no-recipe/no-sourceUrl cases, the requests page shows both statuses, and the
-print sheet builds without crashing. Run after serving the site locally:
+- `test/smoke.mjs` — a Playwright smoke test over the static files (serves itself on an
+  ephemeral port), checking the menu renders from the fixture data, the week picker switches
+  weeks, meal detail renders ingredients/prep/no-recipe/no-sourceUrl cases, the requests page
+  shows both statuses, the roasting page, and the print sheet builds without crashing.
+- `test/smoke-publish-guard.mjs` — tests the build-time safety check itself: a snapshot with any
+  never-show field (notes, allergy, caution, cost, household, photo, pdf, cookLog) or invalid
+  JSON fails; a clean one passes and the newest-by-filename selection picks the right file.
 
 ```bash
-node test/smoke.mjs
+npm test
 ```
