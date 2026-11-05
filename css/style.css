@@ -215,6 +215,97 @@ footer.site {
   font-size: 15px;
 }
 
+/* ---- Meal detail checklists (Ingredients / Prep / Cook) ---- */
+/* Mirrors the app's own checkbox pattern (PrepTab/ShopRow in src/app.tsx): a rounded box that
+   fills green with a check when ticked, and the row's text strikes through and dims. */
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.check-row .checkbox {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid var(--line);
+  margin-top: 1px;
+  position: relative;
+}
+
+.check-row.checked .checkbox {
+  border-color: var(--green);
+  background: var(--green);
+}
+
+.check-row.checked .checkbox::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 7px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.check-row .check-label {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  font-size: 16px;
+}
+
+.check-row.checked {
+  opacity: 0.6;
+}
+
+.check-row.checked .check-label {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.step-num {
+  font-weight: 700;
+}
+
+.recipe-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.clear-checks {
+  display: inline-flex;
+  margin: 2px 0 20px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .status-req {
   font-size: 12px;
   font-weight: 700;

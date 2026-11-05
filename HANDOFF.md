@@ -8,11 +8,31 @@ documents are `wainrigh-dev/eating-in`'s `docs/batch-4-discovery.md` and
 `work-orders/2026-11-03-batch4-work-orders.md` — this doc is a self-contained summary of both plus
 everything decided since.
 
-## Status (Nov 4 2026)
+## Status (Nov 5 2026)
 
+- **Meal detail now shows the full recipe as checklists (work-orders/2026-11-04-alex-site-cook-
+  steps-checklists.md in the app repo), not just plain bullet lists — Ingredients, Prep, Cook, in
+  that order, matching the app's section order.** `js/meal.js` renders each as a tappable row
+  (same green-box-with-check look as the app's own `PrepTab`/`ShopRow` checkbox pattern — see
+  `css/style.css`'s `.check-row`/`.checkbox` rules): tapping the row or the box toggles it,
+  checked rows strike through and dim. Cooking steps keep their numbers. A recipe with no prep
+  tasks or no cooking steps simply has no Prep/Cook header at all — never an empty one. This
+  depends on the app repo's v2.20 (`steps`/`sources` now in the snapshot, behind
+  `features.recipeStepsAndLinks`) — a snapshot published before that, or with the switch off,
+  still renders correctly (no Cook section, single legacy link), since the app's own `sourceUrl`
+  field is still read as a fallback.
+- **Checked state is saved on the device only** (`localStorage`, keyed by `week + meal.id`, wrapped
+  in try/catch so a blocked store doesn't break the page) — it survives a refresh and a later
+  visit, is per-meal (checking one meal's ingredients doesn't touch another), and is never sent
+  anywhere, including back to Paul's app. A "Clear checks" button per meal asks for confirmation
+  first, then unchecks just that meal.
+- Several source links now render (not just the one legacy `sourceUrl`) when the app published
+  more than one — each with its own label when it has one.
+- The one-page print view (`index.html`'s `#print-sheet`) is untouched by any of this — it never
+  included the full steps and still doesn't; this batch only changed `meal.html`.
 - Site is built and live at the URL above: This week / Look ahead week picker, meal detail,
   Requests page, one-page print view, Add-to-Home-Screen manifest + icons, `noindex` +
-  `robots.txt`. Playwright smoke test (`test/smoke.mjs`, 26 checks) passing, run against
+  `robots.txt`. Playwright smoke test (`test/smoke.mjs`, now 44 checks) passing, run against
   `fixtures/sample-snapshot.json` (decoupled from whatever's live in `data/snapshot.json` so the
   suite stays stable across real publishes).
 - **Publishing changed Nov 4 2026** (work-orders/2026-11-03-publish-shortcut.md): `data/
@@ -155,11 +175,13 @@ app's `src/app.tsx` if you ever do get access to that repo):
 - `recipe.sourceUrl` is `null` when there's no external link — in that case there's still an
   in-app recipe to show, just no outside URL. Per the work order: meal detail should still show
   "the in-app recipe" (ingredients/prep) even with no sourceUrl.
-- There are **no cook steps**, only `prepTasks` (do-ahead prep, e.g. "Dice an onion"). This is
-  intentional — the app has no cook-steps field yet; it arrives with a later batch ("Batch 5:
-  cook mode"). Don't add a cook-steps UI section expecting data that will never show up until
-  that lands; design the meal detail page so adding one later is easy, but build for its absence
-  now.
+- **Outdated as of Nov 5 2026 — kept for history, see the Status section above for the current
+  behavior:** "There are no cook steps, only `prepTasks`... the app has no cook-steps field yet."
+  The app gained a `recipe.steps` field (Batch C1, app v2.16) and the snapshot now includes it
+  (app v2.20) behind `features.recipeStepsAndLinks` — `meal.html` renders it as a numbered "Cook"
+  checklist when present. A recipe with the switch off, or published before v2.20, still has no
+  `steps` field at all and correctly shows no Cook section — same graceful absence this note
+  originally described, just no longer permanent.
 - `status` on a meal and the `requests` array are reserved for the Requests confirmation flow.
   Build the Requests page's UI to handle them (a request shows "New" until Paul sets a status in
   the Sheet, then shows "Added"/"Not this time" after the next publish) — but know that **every

@@ -20,7 +20,17 @@
               { "name": "Chicken thighs", "qty": "1.5 lb", "category": "protein" },
               { "name": "Flour tortillas", "qty": "1 pack", "category": "pantry" }
             ],
-            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"]
+            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"],
+            "steps": [
+              "Heat a large skillet over medium-high heat.",
+              "Sear the chicken thighs until cooked through, then slice.",
+              "Add the roasted veg back in and toss to warm through.",
+              "Warm the tortillas and serve everything family-style."
+            ],
+            "sources": [
+              { "url": "https://example.com/fajitas", "label": "" },
+              { "url": "https://example.com/fajitas-video", "label": "Video version" }
+            ]
           }
         },
         {
