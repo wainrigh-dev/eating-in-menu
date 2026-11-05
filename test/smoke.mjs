@@ -9,12 +9,15 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".png": "image/png", ".txt": "text/plain" };
+const MIME = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".png": "image/png", ".jpg": "image/jpeg", ".txt": "text/plain" };
 
 const server = createServer(async (req, res) => {
   let p = decodeURIComponent(req.url.split("?")[0]);
   if (p === "/") p = "/index.html";
   if (p === "/data/snapshot.json") p = "/fixtures/sample-snapshot.json";
+  // The fixture's recipe.photos paths point at "images/..." like a real publish would — serve
+  // those from fixtures/images/ so the test doesn't need a real dated images/ folder checked in.
+  if (p.startsWith("/images/")) p = "/fixtures" + p;
   const full = path.join(ROOT, p);
   try {
     const st = await stat(full);
@@ -53,6 +56,25 @@ check("index shows multi-day split meal on Sun and Wed", await page.locator(".da
 check("index shows no-recipe meal with Added badge", (await page.content()).includes("Taco Night") && (await page.content()).includes("Added"));
 check("updated line is populated", !(await page.locator("#updated").textContent()).includes("Loading"));
 
+// 1b. Recipe photos (work order 2026-11-04): a meal whose recipe has a photo shows a small
+// thumbnail on its card; a meal with no photo shows no empty box and no broken-image icon.
+const fajitasPhoto = page.locator('.meal-card:has-text("Weeknight Fajitas") .meal-photo-small');
+check("meal card with a photo shows the small thumbnail", await fajitasPhoto.count() === 1);
+check("photo thumbnail uses the recipe name as its accessible description", await fajitasPhoto.getAttribute("alt") === "Weeknight Fajitas");
+check("photo thumbnail loads lazily", await fajitasPhoto.getAttribute("loading") === "lazy");
+await fajitasPhoto.waitFor({ state: "attached" });
+check("photo thumbnail actually loaded (not broken)", await fajitasPhoto.evaluate((img) => img.complete && img.naturalWidth > 0));
+const soupCard = page.locator('.meal-card:has-text("Leftover Soup Night")').first();
+check("meal card with no photo shows no thumbnail at all", await soupCard.locator(".meal-photo-small").count() === 0);
+
+// 1c. "Print this week" is the very last element on the page — nothing after it except the
+// (always display:none on screen) print sheet, and nothing for it up near the top anymore.
+const lastTwoIds = await page.evaluate(() =>
+  Array.from(document.body.children).filter((el) => el.tagName !== "SCRIPT").slice(-2).map((el) => el.id || el.tagName));
+check("print button is the second-to-last element, with only the hidden print sheet after it", lastTwoIds[0] === "print-btn" && lastTwoIds[1] === "print-sheet");
+const mainChildren = await page.evaluate(() => Array.from(document.querySelector("main").children).map((el) => el.id || el.className));
+check("print button is no longer inside <main> near the top", !mainChildren.some((c) => String(c).includes("print-btn")));
+
 // 2. Week picker switches weeks.
 const pickerButtons = page.locator(".week-picker button");
 check("week picker has 2 weeks", await pickerButtons.count() === 2);
@@ -71,6 +93,13 @@ check("meal detail shows both source links (legacy + plural sources)", (await pa
 check("second source link shows its label", (await page.content()).includes("Video version"));
 const sectionTitles = await page.locator(".section-title").allTextContents();
 check("sections appear in order: Ingredients, Prep, Cook", sectionTitles.join(",") === "Ingredients,Prep,Cook");
+check("meal detail shows the larger medium photo at the top", await page.locator(".meal-photo-medium").count() === 1);
+check("medium photo appears before the Ingredients section (top of page)",
+  await page.evaluate(() => {
+    const photo = document.querySelector(".meal-photo-medium");
+    const firstSection = document.querySelector(".section-title");
+    return !!(photo && firstSection) && photo.compareDocumentPosition(firstSection) & Node.DOCUMENT_POSITION_FOLLOWING;
+  }));
 check("cooking steps keep their numbers and order",
   (await page.locator(".check-row .step-num").allTextContents()).join(" ") === "1. 2. 3. 4.");
 
@@ -123,6 +152,7 @@ check("no-recipe meal shows graceful message", (await page.content()).includes("
 await page.goto(`${base}/meal.html?id=m2-Sun`);
 await page.waitForSelector(".card");
 check("no-sourceUrl meal shows ingredients", (await page.content()).includes("Egg noodles"));
+check("meal with no photo shows no medium-photo element at all", await page.locator(".meal-photo-medium").count() === 0);
 check("no-sourceUrl meal has no recipe link", (await page.locator("a.recipe-link").count()) === 0);
 check("meal with no prep tasks has no Prep section header", !(await page.locator(".section-title").allTextContents()).includes("Prep"));
 check("meal with no cooking steps has no Cook section header", !(await page.locator(".section-title").allTextContents()).includes("Cook"));
@@ -133,6 +163,9 @@ await page.goto(`${base}/meal.html?id=m4-Mon`);
 await page.waitForSelector(".card");
 check("legacy-shape recipe (no steps/sources fields) still shows its one source link", (await page.locator("a.recipe-link").count()) === 1);
 check("legacy-shape recipe has no Cook section", !(await page.locator(".section-title").allTextContents()).includes("Cook"));
+// This recipe object has no "photos" field at all (an older/schemaVersion-1-shaped snapshot
+// never will either) — confirms a snapshot with no photo fields still loads and just shows none.
+check("a recipe with no photos field at all renders with no photo and no error", await page.locator(".meal-photo-medium").count() === 0);
 
 // 6. Meal detail: unknown id handled gracefully.
 await page.goto(`${base}/meal.html?id=does-not-exist`);
@@ -164,6 +197,8 @@ for (const url of ["/index.html", "/meal.html?id=m1-Tue", "/requests.html", "/ro
   if (disallowed.some((w) => html.includes(w))) leaked = true;
 }
 check("no disallowed fields leak into rendered HTML", !leaked);
+await page.goto(`${base}/meal.html?id=m1-Tue`);
+check("meal detail's photo src is a plain relative path, never a data: URI", (await page.locator(".meal-photo-medium").getAttribute("src")).startsWith("images/"));
 
 // 9. Print sheet builds without crashing and contains the week's meals.
 await page.goto(`${base}/index.html`);

@@ -37,6 +37,10 @@
   }
 
   const r = meal.recipe;
+  const photoSrc = r.photos && r.photos.medium;
+  const photoHtml = photoSrc
+    ? `<img class="meal-photo-medium" src="${encodeURI(photoSrc)}" alt="${escapeHtml(meal.name)}" loading="lazy" onerror="this.remove()" />`
+    : "";
   const ingredients = r.ingredients || [];
   const prepTasks = r.prepTasks || [];
   const steps = r.steps || [];
@@ -91,7 +95,7 @@
         `<a class="recipe-link" href="${encodeURI(s.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(s.label || (i === 0 ? "Open full recipe" : "Source"))} &rarr;</a>`).join("")}</div>`
     : "";
 
-  bodyEl.innerHTML = cookLine +
+  bodyEl.innerHTML = photoHtml + cookLine +
     '<div class="section-title">Ingredients</div>' + ingredientsHtml +
     prepHtml +
     cookHtml +

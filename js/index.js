@@ -56,10 +56,17 @@
 
   function mealCardHtml(m) {
     const cook = m.cookName ? `Cooking: ${escapeHtml(m.cookName)}` : "No cook assigned yet";
+    const photoSrc = m.recipe && m.recipe.photos && m.recipe.photos.small;
+    const photoHtml = photoSrc
+      ? `<img class="meal-photo-small" src="${encodeURI(photoSrc)}" alt="${escapeHtml(m.name)}" loading="lazy" onerror="this.remove()" />`
+      : "";
     return `
       <a class="meal-card" href="meal.html?id=${encodeURIComponent(m.id)}">
-        <div class="meal-name">${escapeHtml(m.name)}${statusBadge(m.status)}</div>
-        <div class="meal-meta">${cook}</div>
+        ${photoHtml}
+        <div class="meal-card-main">
+          <div class="meal-name">${escapeHtml(m.name)}${statusBadge(m.status)}</div>
+          <div class="meal-meta">${cook}</div>
+        </div>
       </a>
     `;
   }
