@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-snapshot.mjs",
-    "test": "node test/smoke.mjs && node test/smoke-publish-guard.mjs"
+    "test": "node test/smoke.mjs && node test/smoke-publish-guard.mjs && node test/smoke-unpack-bundle.mjs"
   },
   "devDependencies": {
     "playwright": "^1.44.0"

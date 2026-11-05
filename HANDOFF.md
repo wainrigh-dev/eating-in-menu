@@ -17,10 +17,26 @@ everything decided since.
   see the schema section below and the standing decision on the guard's narrow exception for it.
   **The app's own publish screen only ever downloads files; it never pushes to this repo.** A
   publish that includes photos needs the `/publish-to-alex` skill (not the one-tap Shortcut,
-  which can only carry the one snapshot JSON) — Paul hands it the snapshot plus the small/medium
-  photo files the app saved alongside it, and the skill places them at the exact `images/...`
-  paths the snapshot already names. "Print this week" also moved to the very bottom of the Menu
+  which can only carry one file). "Print this week" also moved to the very bottom of the Menu
   page (previously near the top) — same release, unrelated change, no snapshot impact.
+- **Nov 5 2026 follow-up: a photo publish now saves one bundle file, not one-plus-N separate
+  downloads — app v2.23.** The first version of the above saved the snapshot, then two JPEGs per
+  recipe, as separate `downloads`-capability calls from a single tap. Confirmed broken on Paul's
+  real iPhone the same day: the snapshot saved, all four photo files silently vanished with no
+  error — browsers routinely drop automatic downloads past the first one or two triggered by one
+  gesture. App v2.23 now saves exactly one file when there's at least one photo: `alex-publish-
+  bundle-<stamp>.json`, shaped `{snapshot, photos: {"<basename>.jpg": "<base64>", ...}}` — a
+  publish with no photos is unchanged (still the plain snapshot file, still Shortcut-compatible).
+  This repo's `/publish-to-alex` skill now opens with a bundle-vs-plain-snapshot check and, for a
+  bundle, runs the new `scripts/unpack-publish-bundle.mjs` first — it decodes each photo straight
+  to the exact `images/...` path the snapshot's own `photos` field names (never re-derived) and
+  writes the plain snapshot out for the rest of the flow (`build-snapshot.mjs`'s guard, same as
+  always) to use untouched. Covered by the new `test/smoke-unpack-bundle.mjs` (15 checks, no
+  browser needed) and the app repo's extended `test/smoke-batch4-alex-publish.mjs`. **A genuinely
+  successful resize (real photo bytes actually landing in the bundle) still hasn't been confirmed
+  end to end** — neither this session's network policy nor the smoke harness's file:// sandboxing
+  can exercise a real image load; that needs Paul to publish with a real recipe photo and confirm
+  on the live site.
 - **Meal detail now shows the full recipe as checklists (work-orders/2026-11-04-alex-site-cook-
   steps-checklists.md in the app repo), not just plain bullet lists — Ingredients, Prep, Cook, in
   that order, matching the app's section order.** `js/meal.js` renders each as a tappable row

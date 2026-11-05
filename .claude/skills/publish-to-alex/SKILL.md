@@ -15,41 +15,50 @@ the script is the source of truth.
 
 ## Steps
 
-1. **Locate the snapshot file, and any photo files Paul also handed you.** The snapshot looks
-   like `alex-snapshot-<timestamp>.json` (the app's own download name) — the name doesn't matter,
-   only the contents do. Since work order 2026-11-04 (Alex site photos), a publish that includes
-   recipe photos also has a handful of `img-<recipeId>-small.jpg` / `img-<recipeId>-medium.jpg`
-   files alongside it — the app's "Publish to Alex" screen saves these to the same Downloads
-   location as the snapshot, specifically *because* the one-tap iPhone Shortcut can't carry them
-   (it only ever moves the one JSON file) — this skill is the fallback that can. If Paul only
-   hands you the snapshot and it references `recipe.photos` fields with no matching image files,
-   say so plainly and ask him to find and attach them too — don't publish a snapshot whose photo
-   paths point at files that don't exist on the site.
+1. **Locate the file Paul attached, and tell which shape it is.** It's one of two things:
+   - **A plain snapshot** (`alex-snapshot-<timestamp>.json`, the app's own download name for a
+     publish with no photos) — the file itself *is* the snapshot. Skip straight to step 2.
+   - **A publish bundle** (`alex-publish-bundle-<timestamp>.json`, app v2.23+, a publish that
+     included recipe photos) — the file's top level looks like `{"snapshot": {...}, "photos":
+     {...}}`, not the plain snapshot shape directly. **Before v2.23, a photo publish instead saved
+     the snapshot plus two separate JPEG files per recipe** — don't try to hand-assemble those;
+     if Paul hands you several loose files like that from an old publish, tell him to re-publish
+     from the app instead (that path silently dropped files on a real phone and was replaced).
+   - The filename is a hint, not the rule — if unsure, open the file and check for a top-level
+     `snapshot` key.
+
+1b. **For a bundle, unpack it first:**
+   ```
+   node scripts/unpack-publish-bundle.mjs <bundle-file> --out-snapshot /tmp/unpacked-snapshot.json
+   ```
+   This writes every referenced photo straight to its real `images/<dated folder>/...` path
+   (read from the snapshot's own `photos` fields, never re-derived) and writes the plain
+   snapshot to the `--out-snapshot` path you gave it. Its own output tells you plainly about
+   anything off — a photo path the snapshot references with no matching bytes in the bundle (left
+   unwritten; the site just shows no photo for that one, same as any recipe with none — mention it
+   in step 6, don't treat it as a failure) or bundle bytes nothing in the snapshot pointed at
+   (ignored). From here on, treat that `--out-snapshot` file exactly like a plain snapshot Paul
+   handed you directly — continue at step 2.
 
 2. **Validate the snapshot** with the repo's own guard, don't re-implement the checks:
    ```
-   node scripts/build-snapshot.mjs --check-only <path-to-the-file>
+   node scripts/build-snapshot.mjs --check-only <path-to-the-snapshot>
    ```
+   (for a bundle, that's the `--out-snapshot` file from step 1b, not the original bundle file —
+   the guard only understands the plain snapshot shape)
    - If this exits non-zero, **stop here**. Tell Paul plainly what failed (the script prints the
      specific problem — e.g. a forbidden field, invalid JSON, a missing required field) and do
      not commit anything. Don't try to patch the file by hand — if it looks wrong, report it;
-     the app side (snapshot schema, allowlist) is explicitly out of scope for this skill.
+     the app side (snapshot schema, allowlist) is explicitly out of scope for this skill. If you
+     already unpacked a bundle's photo files in step 1b before this fails, leave them — they're
+     harmless, untracked-by-git files sitting under `images/` until a later successful publish's
+     prune step (step 4) cleans them up; don't hand-delete them.
 
 3. **If it passed**, copy it into `snapshots/` under a dated name matching the existing
    convention (`snapshot-YYYY-MM-DD-HHMM.json`, UTC, from the current time — see any existing
    file in `snapshots/` for the exact format). Don't overwrite an existing file; each publish is
-   a new file.
-
-3b. **If the snapshot has any `recipe.photos` fields, place the matching photo files too.** Each
-   `photos.small`/`photos.medium` value is a relative path already written by the app, e.g.
-   `images/2026-11-05-1530/img-r1-small.jpg` — copy the photo file Paul gave you (matched by its
-   `img-<recipeId>-<size>.jpg` basename) to exactly that path under the repo root, creating the
-   dated folder. Don't rename or re-derive the path yourself; use the one the snapshot already
-   states, so the guard's own path validation (`scripts/build-snapshot.mjs`) and what actually
-   ships always agree. If a referenced photo path has no matching file, leave that one out and
-   flag it to Paul in step 6 rather than guessing or inventing a placeholder — the site already
-   handles a missing/broken photo gracefully (no empty box, no broken-image icon), so an
-   incomplete photo set is safe to ship, just worth him knowing about.
+   a new file. (Photo files, if any, are already sitting in place under `images/` from step 1b —
+   nothing more to do with them here.)
 
 4. **Prune old snapshots** *and* old photo folders. List `snapshots/*.json` sorted by name (the
    dated names sort chronologically) and delete all but the newest 20, *including* the one you
@@ -65,7 +74,7 @@ the script is the source of truth.
 
 6. **Tell Paul what happened:**
    - The new file name and that it was pushed, and how many photo files (if any) went with it.
-   - Any photo the snapshot referenced but you didn't have a file for (see step 3b).
+   - Any photo the snapshot referenced but the bundle had no bytes for (see step 1b).
    - That Vercel will redeploy in about a minute, and that this session's network policy blocks
      `*.vercel.app`, so you can't confirm the live site actually updated — he should check it
      himself.
