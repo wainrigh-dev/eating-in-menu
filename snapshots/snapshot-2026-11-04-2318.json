@@ -1,0 +1,1594 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-11-05T06:17:41.597Z",
+  "weeks": [
+    {
+      "weekId": "2026-11-01",
+      "meals": [
+        {
+          "id": "6e4zejh-Wed",
+          "name": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage or Tofu",
+          "day": "Wed",
+          "cookName": "Alex",
+          "status": null,
+          "recipe": {
+            "name": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage or Tofu",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "yams / white sweet potatoes",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "dried black beans",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "chicken sausage",
+                "qty": "",
+                "category": "protein"
+              },
+              {
+                "name": "tofu",
+                "qty": "",
+                "category": "fridge"
+              }
+            ],
+            "prepTasks": [
+              "Roast yams whole: pierce, oil + coarse salt, 400°F for 45–60 min",
+              "Instant Pot black beans"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "yt65a4q-Mon",
+          "name": "Pesto Pasta with Roasted Veg",
+          "day": "Mon",
+          "cookName": "Paul",
+          "status": null,
+          "recipe": {
+            "name": "Pesto Pasta with Roasted Veg",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "butternut squash",
+                "qty": "1 small (about 3 cups cubed)",
+                "category": "produce"
+              },
+              {
+                "name": "zucchini",
+                "qty": "2 medium",
+                "category": "produce"
+              },
+              {
+                "name": "red bell pepper",
+                "qty": "1 large",
+                "category": "produce"
+              },
+              {
+                "name": "red onion",
+                "qty": "1 small",
+                "category": "produce"
+              },
+              {
+                "name": "basil pesto",
+                "qty": "1/2 cup",
+                "category": "fridge"
+              },
+              {
+                "name": "kalamata olives",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "pasta",
+                "qty": "12 oz",
+                "category": "pantry"
+              },
+              {
+                "name": "olive oil",
+                "qty": "2 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "salt and pepper",
+                "qty": "to taste",
+                "category": "pantry"
+              },
+              {
+                "name": "red wine vinegar or apple cider vinegar",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "sugar",
+                "qty": "1 tsp",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Peel, seed and cube butternut squash",
+              "Slice zucchini into half-moons",
+              "Chop red bell pepper",
+              "Thinly slice red onion",
+              "Pickle sliced onion in vinegar, sugar and salt",
+              "Halve or drain Kalamata olives",
+              "Preheat oven to 425F"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "yt65a4q-Tue",
+          "name": "Pesto Pasta with Roasted Veg",
+          "day": "Tue",
+          "cookName": "Paul",
+          "status": null,
+          "recipe": {
+            "name": "Pesto Pasta with Roasted Veg",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "butternut squash",
+                "qty": "1 small (about 3 cups cubed)",
+                "category": "produce"
+              },
+              {
+                "name": "zucchini",
+                "qty": "2 medium",
+                "category": "produce"
+              },
+              {
+                "name": "red bell pepper",
+                "qty": "1 large",
+                "category": "produce"
+              },
+              {
+                "name": "red onion",
+                "qty": "1 small",
+                "category": "produce"
+              },
+              {
+                "name": "basil pesto",
+                "qty": "1/2 cup",
+                "category": "fridge"
+              },
+              {
+                "name": "kalamata olives",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "pasta",
+                "qty": "12 oz",
+                "category": "pantry"
+              },
+              {
+                "name": "olive oil",
+                "qty": "2 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "salt and pepper",
+                "qty": "to taste",
+                "category": "pantry"
+              },
+              {
+                "name": "red wine vinegar or apple cider vinegar",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "sugar",
+                "qty": "1 tsp",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Peel, seed and cube butternut squash",
+              "Slice zucchini into half-moons",
+              "Chop red bell pepper",
+              "Thinly slice red onion",
+              "Pickle sliced onion in vinegar, sugar and salt",
+              "Halve or drain Kalamata olives",
+              "Preheat oven to 425F"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "yt65a4q-Thu",
+          "name": "Pesto Pasta with Roasted Veg",
+          "day": "Thu",
+          "cookName": "Paul",
+          "status": null,
+          "recipe": {
+            "name": "Pesto Pasta with Roasted Veg",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "butternut squash",
+                "qty": "1 small (about 3 cups cubed)",
+                "category": "produce"
+              },
+              {
+                "name": "zucchini",
+                "qty": "2 medium",
+                "category": "produce"
+              },
+              {
+                "name": "red bell pepper",
+                "qty": "1 large",
+                "category": "produce"
+              },
+              {
+                "name": "red onion",
+                "qty": "1 small",
+                "category": "produce"
+              },
+              {
+                "name": "basil pesto",
+                "qty": "1/2 cup",
+                "category": "fridge"
+              },
+              {
+                "name": "kalamata olives",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "pasta",
+                "qty": "12 oz",
+                "category": "pantry"
+              },
+              {
+                "name": "olive oil",
+                "qty": "2 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "salt and pepper",
+                "qty": "to taste",
+                "category": "pantry"
+              },
+              {
+                "name": "red wine vinegar or apple cider vinegar",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "sugar",
+                "qty": "1 tsp",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Peel, seed and cube butternut squash",
+              "Slice zucchini into half-moons",
+              "Chop red bell pepper",
+              "Thinly slice red onion",
+              "Pickle sliced onion in vinegar, sugar and salt",
+              "Halve or drain Kalamata olives",
+              "Preheat oven to 425F"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "p6ui0sl-Tue",
+          "name": "Quick chicken tacos",
+          "day": "Tue",
+          "cookName": "Paul",
+          "status": null,
+          "recipe": null
+        }
+      ],
+      "prep": [
+        {
+          "text": "Peel, seed and cube butternut squash",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Slice zucchini into half-moons",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Chop red bell pepper",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Thinly slice red onion",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Pickle sliced onion in vinegar, sugar and salt",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Halve or drain Kalamata olives",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Preheat oven to 425F",
+          "recipe": "Pesto Pasta with Roasted Veg",
+          "done": true
+        },
+        {
+          "text": "Roast yams whole: pierce, oil + coarse salt, 400°F for 45–60 min",
+          "recipe": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage",
+          "done": false
+        },
+        {
+          "text": "Instant Pot black beans",
+          "recipe": "Roasted Yam with Instant Pot Black Beans & Chicken Sausage",
+          "done": true
+        }
+      ]
+    },
+    {
+      "weekId": "2026-11-08",
+      "meals": [
+        {
+          "id": "mnmrg4y",
+          "name": "Chicken Noodle Soup & Bread",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup & Bread",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "whole chicken",
+                "qty": "3 lb",
+                "category": "protein"
+              },
+              {
+                "name": "carrot",
+                "qty": "extra for soup",
+                "category": "produce"
+              },
+              {
+                "name": "celery",
+                "qty": "extra for soup",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "2",
+                "category": "produce"
+              },
+              {
+                "name": "garlic",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "rosemary",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "thyme",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "sage",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "egg noodles",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "crusty bread",
+                "qty": "",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Make chicken stock (stove top; consider cutting bone broth with more water)",
+              "Shred chicken",
+              "Chop extra carrots and celery for the soup",
+              "Cook noodles"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "8i7fqiu",
+          "name": "sausages and pierogies",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "sausages and pierogies",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "box frozen pierogies",
+                "qty": "2",
+                "category": "freezer"
+              },
+              {
+                "name": "package polish sausage",
+                "qty": "1",
+                "category": "fridge"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "1",
+                "category": "produce"
+              },
+              {
+                "name": "butter",
+                "qty": "",
+                "category": "fridge"
+              },
+              {
+                "name": "sour cream",
+                "qty": "",
+                "category": "fridge"
+              }
+            ],
+            "prepTasks": [
+              "- Carmelize the yellow onion",
+              "- cook the sausage",
+              "- follow instructions on pierogies"
+            ],
+            "steps": [
+              "Begin caramel zing the onions.  Start with heat high for 2 minutes and then switch to low with butter.  Keep on low and stir frequently for almost 30",
+              "Boil water",
+              "Follow instructions on box for pierogies for boiling pierogies",
+              "occassionally add beer to the onions",
+              "Slice sausages and cook separately or with onions",
+              "Add pierogies to fry pan with onions",
+              "Once pierogies and sausages look almost ready, add sauerkraut to pan",
+              "Serve with mustard and sour cream"
+            ],
+            "sources": [
+              {
+                "url": "https://feelslikehomeblog.com/wprm_print/how-to-make-frozen-pierogies-with-butter-and-onions",
+                "label": "Pierogies"
+              },
+              {
+                "url": "https://cooking.nytimes.com/recipes/1024412-caramelized-onions?unlocked_article_code=1.NlE.JX6h.3-dFD_xDpNg1&smid=ck-recipe-iOS-share",
+                "label": "Carmelized onion"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bd6zuhh-Mon",
+          "name": "Baked Farro with Lentils Tomato and Feta",
+          "day": "Mon",
+          "cookName": "Alex",
+          "status": null,
+          "recipe": {
+            "name": "Baked Farro with Lentils Tomato and Feta",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "farro",
+                "qty": "1 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "dried green or brown lentils",
+                "qty": "1/2 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "extra-virgin olive oil, plus more for drizzling",
+                "qty": "2 tablespoons",
+                "category": "pantry"
+              },
+              {
+                "name": "large yellow onion",
+                "qty": "1",
+                "category": "produce"
+              },
+              {
+                "name": "kosher salt and black pepper",
+                "qty": "to taste",
+                "category": "pantry"
+              },
+              {
+                "name": "garlic cloves",
+                "qty": "4",
+                "category": "produce"
+              },
+              {
+                "name": "red-pepper flakes",
+                "qty": "1 teaspoon",
+                "category": "pantry"
+              },
+              {
+                "name": "tomato purée (or your favorite tomato sauce)",
+                "qty": "1 (28-ounce) can",
+                "category": "pantry"
+              },
+              {
+                "name": "fresh oregano, thyme, rosemary or basil sprigs (optional) or dried herb",
+                "qty": "2 sprigs or 1/2 teaspoon dried",
+                "category": "produce"
+              },
+              {
+                "name": "water",
+                "qty": "2 1/2 cups, plus 1/4 cup if needed",
+                "category": "pantry"
+              },
+              {
+                "name": "feta",
+                "qty": "1 (8-ounce) block",
+                "category": "fridge"
+              }
+            ],
+            "prepTasks": [
+              "Coarsely chop 1 large yellow onion",
+              "Thinly slice 4 garlic cloves",
+              "Cut feta into 1/4-inch slices and break each in half"
+            ],
+            "steps": [
+              "Heat the oven to 400 degrees and place one rack 6 inches from the broiler.",
+              "Place the farro in an 8-by-8-inch (2-quart) broiler-proof baking dish and toast in the oven for 10 to 15 minutes.",
+              "Remove the dish and scatter the lentils over the farro.",
+              "While the farro toasts, warm the olive oil in a medium saucepan over medium-high heat.",
+              "Add the onion, season with salt and pepper, and cook, stirring occasionally, until softened, 5 to 7 minutes.",
+              "Add the garlic and red-pepper flakes and cook until fragrant, 1 to 2 minutes.",
+              "Add the tomato purée, herb sprigs if using, and 2 1/2 cups water. Season with salt and pepper and bring to a boil.",
+              "Gently pour the tomato sauce over the lentils and farro and stir to combine.",
+              "Bake, stirring halfway through, until the lentils and farro are tender, 40 to 50 minutes. If the mixture looks dry, add 1/4 cup water.",
+              "Remove the dish from the oven and turn on the broiler.",
+              "Stir the lentils and farro once more and discard the herb sprigs.",
+              "Top with the feta slices and drizzle with olive oil.",
+              "Broil until the feta is molten and charred in spots, 6 to 8 minutes, rotating the pan after 2 or 3 minutes if needed for even cooking."
+            ],
+            "sources": [
+              {
+                "url": "https://cooking.nytimes.com/recipes/1020809-baked-farro-with-lentils-tomato-and-feta?unlocked_article_code=1.N1E.WLq3.6mDIGxLRPT0_&smid=ck-recipe-iOS-share",
+                "label": "NYT"
+              },
+              {
+                "url": "https://cooking.nytimes.com/recipes/1020809-baked-farro-with-lentils-tomato-and-feta?unlocked_article_code=1.N1E.WLq3.6mDIGxLRPT0_&smid=ck-recipe-iOS-share",
+                "label": ""
+              }
+            ]
+          }
+        }
+      ],
+      "prep": [
+        {
+          "text": "Make chicken stock (stove top; consider cutting bone broth with more water)",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": true
+        },
+        {
+          "text": "Shred chicken",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": true
+        },
+        {
+          "text": "Chop extra carrots and celery for the soup",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": true
+        },
+        {
+          "text": "Cook noodles",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": true
+        },
+        {
+          "text": "- Carmelize the yellow onion",
+          "recipe": "sausages and pierogies",
+          "done": true
+        },
+        {
+          "text": "- cook the sausage",
+          "recipe": "sausages and pierogies",
+          "done": true
+        },
+        {
+          "text": "- follow instructions on pierogies",
+          "recipe": "sausages and pierogies",
+          "done": true
+        }
+      ]
+    },
+    {
+      "weekId": "2026-11-15",
+      "meals": [
+        {
+          "id": "dtlo18o",
+          "name": "Chicken Tacos",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Tacos",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "shredded chicken",
+                "qty": "from whole chicken",
+                "category": "protein"
+              },
+              {
+                "name": "tortillas",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "lil pepper bag",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "mushrooms",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "swiss chard",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "avocado",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "cilantro",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "fresh salsa",
+                "qty": "",
+                "category": "produce"
+              }
+            ],
+            "prepTasks": [
+              "Roast fajita veg (peppers, mushrooms, onion)"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "ivywlz0",
+          "name": "Chicken Noodle Soup & Bread",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup & Bread",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "whole chicken",
+                "qty": "3 lb",
+                "category": "protein"
+              },
+              {
+                "name": "carrot",
+                "qty": "extra for soup",
+                "category": "produce"
+              },
+              {
+                "name": "celery",
+                "qty": "extra for soup",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "2",
+                "category": "produce"
+              },
+              {
+                "name": "garlic",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "rosemary",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "thyme",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "sage",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "egg noodles",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "crusty bread",
+                "qty": "",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Make chicken stock (stove top; consider cutting bone broth with more water)",
+              "Shred chicken",
+              "Chop extra carrots and celery for the soup",
+              "Cook noodles"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "aj9reon",
+          "name": "Miso Creamed Spinach",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Miso Creamed Spinach",
+            "sourceUrl": "https://cooking.nytimes.com/recipes/776282767-miso-creamed-spinach?unlocked_article_code=1.NlE.rQks.Nsqm5LxvhX8L&smid=ck-recipe-iOS-share",
+            "ingredients": [
+              {
+                "name": "olive oil",
+                "qty": "2 tablespoons",
+                "category": "pantry"
+              },
+              {
+                "name": "yellow onion, diced small",
+                "qty": "1 medium",
+                "category": "produce"
+              },
+              {
+                "name": "heavy cream",
+                "qty": "1 ¼ cups",
+                "category": "fridge"
+              },
+              {
+                "name": "white miso",
+                "qty": "¼ cup",
+                "category": "fridge"
+              },
+              {
+                "name": "kosher salt (such as Diamond Crystal), more to taste",
+                "qty": "1 teaspoon",
+                "category": "pantry"
+              },
+              {
+                "name": "black pepper, more to taste",
+                "qty": "1 teaspoon",
+                "category": "pantry"
+              },
+              {
+                "name": "fresh spinach",
+                "qty": "20 ounces",
+                "category": "produce"
+              },
+              {
+                "name": "freshly grated Parmesan",
+                "qty": "1 cup (about 4 ounces)",
+                "category": "fridge"
+              }
+            ],
+            "prepTasks": [
+              "Dice 1 medium yellow onion",
+              "Grate 4 ounces Parmesan",
+              "Measure out cream and miso"
+            ],
+            "steps": [],
+            "sources": [
+              {
+                "url": "https://cooking.nytimes.com/recipes/776282767-miso-creamed-spinach?unlocked_article_code=1.NlE.rQks.Nsqm5LxvhX8L&smid=ck-recipe-iOS-share",
+                "label": ""
+              }
+            ]
+          }
+        }
+      ],
+      "prep": [
+        {
+          "text": "Roast fajita veg (peppers, mushrooms, onion)",
+          "recipe": "Chicken Tacos",
+          "done": false
+        },
+        {
+          "text": "Make chicken stock (stove top; consider cutting bone broth with more water)",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": false
+        },
+        {
+          "text": "Shred chicken",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": false
+        },
+        {
+          "text": "Chop extra carrots and celery for the soup",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": false
+        },
+        {
+          "text": "Cook noodles",
+          "recipe": "Chicken Noodle Soup & Bread",
+          "done": false
+        },
+        {
+          "text": "Dice 1 medium yellow onion",
+          "recipe": "Miso Creamed Spinach",
+          "done": false
+        },
+        {
+          "text": "Grate 4 ounces Parmesan",
+          "recipe": "Miso Creamed Spinach",
+          "done": false
+        },
+        {
+          "text": "Measure out cream and miso",
+          "recipe": "Miso Creamed Spinach",
+          "done": false
+        }
+      ]
+    },
+    {
+      "weekId": "2026-11-22",
+      "meals": [
+        {
+          "id": "e9musw5-Mon",
+          "name": "Crispy Halloumi Salad with Dates & Arugula",
+          "day": "Mon",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Crispy Halloumi Salad with Dates & Arugula",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "halloumi",
+                "qty": "8–12 oz",
+                "category": "fridge"
+              },
+              {
+                "name": "butter",
+                "qty": "",
+                "category": "fridge"
+              },
+              {
+                "name": "arugula (or arugula-spinach mix)",
+                "qty": "5 oz",
+                "category": "produce"
+              },
+              {
+                "name": "fresh parsley",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "scallions",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "medjool dates (pitted)",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "slivered almonds",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "olive oil",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "red wine vinegar",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "honey",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "dijon",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "paprika",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "cinnamon",
+                "qty": "",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Make the dressing",
+              "Pre-cut the halloumi",
+              "Chop dates, parsley, scallions; prep salad parts"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "e9musw5-Thu",
+          "name": "Crispy Halloumi Salad with Dates & Arugula",
+          "day": "Thu",
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Crispy Halloumi Salad with Dates & Arugula",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "halloumi",
+                "qty": "8–12 oz",
+                "category": "fridge"
+              },
+              {
+                "name": "butter",
+                "qty": "",
+                "category": "fridge"
+              },
+              {
+                "name": "arugula (or arugula-spinach mix)",
+                "qty": "5 oz",
+                "category": "produce"
+              },
+              {
+                "name": "fresh parsley",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "scallions",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "medjool dates (pitted)",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "slivered almonds",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "olive oil",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "red wine vinegar",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "honey",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "dijon",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "paprika",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "cinnamon",
+                "qty": "",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Make the dressing",
+              "Pre-cut the halloumi",
+              "Chop dates, parsley, scallions; prep salad parts"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        }
+      ],
+      "prep": []
+    },
+    {
+      "weekId": "2026-12-06",
+      "meals": [
+        {
+          "id": "1decnnh",
+          "name": "Tofu & Green Beans with Chile Crisp (Sheet Pan)",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Tofu & Green Beans with Chile Crisp (Sheet Pan)",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "extra firm tofu",
+                "qty": "14 oz",
+                "category": "fridge"
+              },
+              {
+                "name": "green beans",
+                "qty": "3/4 lb",
+                "category": "produce"
+              },
+              {
+                "name": "chile crisp",
+                "qty": "3+ tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "soy sauce",
+                "qty": "3 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "chinese black vinegar",
+                "qty": "1.5 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "sesame oil",
+                "qty": "1.5 tsp",
+                "category": "pantry"
+              },
+              {
+                "name": "honey",
+                "qty": "1 tsp",
+                "category": "pantry"
+              },
+              {
+                "name": "neutral oil",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "garlic",
+                "qty": "2 cloves",
+                "category": "produce"
+              },
+              {
+                "name": "fresh ginger",
+                "qty": "1 tbsp",
+                "category": "produce"
+              },
+              {
+                "name": "scallions",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "cilantro",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "rice (for serving)",
+                "qty": "",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Pre-cut/trim green beans",
+              "Whisk marinade; marinate tofu while oven heats to 450°F",
+              "Roast 20–25 min until green beans blister"
+            ],
+            "steps": [],
+            "sources": [
+              {
+                "url": "https://cooking.nytimes.com/recipes/1020993-tofu-and-green-beans-with-chile-crisp",
+                "label": "Source"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jk1yigy",
+          "name": "Veggie Broccoli Lo Mein",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Veggie Broccoli Lo Mein",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "lo mein noodles",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "vegetable broth",
+                "qty": "1/4 cup",
+                "category": "pantry"
+              },
+              {
+                "name": "soy sauce",
+                "qty": "3 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "brown sugar",
+                "qty": "2 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "sesame oil",
+                "qty": "1 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "broccoli",
+                "qty": "lots",
+                "category": "produce"
+              },
+              {
+                "name": "carrot",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "red bell pepper",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "1 medium",
+                "category": "produce"
+              },
+              {
+                "name": "garlic",
+                "qty": "4 cloves",
+                "category": "produce"
+              },
+              {
+                "name": "swiss chard",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "tofu",
+                "qty": "",
+                "category": "fridge"
+              }
+            ],
+            "prepTasks": [
+              "Make veggie broth from bouillon",
+              "Whisk lo mein sauce",
+              "Cook noodles",
+              "Air-fry tofu"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "995phx6",
+          "name": "Veggie Tofu Rice Bowl",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Veggie Tofu Rice Bowl",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "tofu (for par-frying/baking)",
+                "qty": "",
+                "category": "fridge"
+              },
+              {
+                "name": "rice",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "asian bbq sauce",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "shiitake mushrooms",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "celery",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "red bell pepper",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "watermelon radish",
+                "qty": "",
+                "category": "produce"
+              }
+            ],
+            "prepTasks": [
+              "Veggie bake sheet (mushroom, pepper, onion, celery)",
+              "Air-fry tofu",
+              "Portion and freeze extra rice"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "bn1sub6",
+          "name": "Crispy Tofu with Blistered Snap Peas",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Crispy Tofu with Blistered Snap Peas",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "tofu",
+                "qty": "",
+                "category": "fridge"
+              },
+              {
+                "name": "sugar snap peas",
+                "qty": "",
+                "category": "produce"
+              }
+            ],
+            "prepTasks": [
+              "Air-fry or par-fry tofu"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "irutfxh",
+          "name": "Yummy Eggplant (Chile-Crisp Glazed)",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Yummy Eggplant (Chile-Crisp Glazed)",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "eggplant",
+                "qty": "1",
+                "category": "produce"
+              },
+              {
+                "name": "garlic",
+                "qty": "2–3 cloves",
+                "category": "produce"
+              },
+              {
+                "name": "fresh ginger",
+                "qty": "1 tsp minced",
+                "category": "produce"
+              },
+              {
+                "name": "scallions",
+                "qty": "2",
+                "category": "produce"
+              },
+              {
+                "name": "neutral oil",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "soy sauce",
+                "qty": "1 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "black or rice vinegar",
+                "qty": "1 tbsp",
+                "category": "pantry"
+              },
+              {
+                "name": "sugar",
+                "qty": "1 tsp",
+                "category": "pantry"
+              },
+              {
+                "name": "chile crisp or doubanjiang",
+                "qty": "1–2 tsp",
+                "category": "pantry"
+              },
+              {
+                "name": "cornstarch",
+                "qty": "1 tsp",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Cut eggplant into thick matchsticks; salt 10–15 min, squeeze dry",
+              "Mix sauce in a small bowl ahead"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        }
+      ],
+      "prep": []
+    },
+    {
+      "weekId": "2026-12-13",
+      "meals": [
+        {
+          "id": "a6ouhc4",
+          "name": "Grilled Cheese & Tomato Soup",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Grilled Cheese & Tomato Soup",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "bread",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "tomato soup",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "cheese to shred",
+                "qty": "",
+                "category": "fridge"
+              },
+              {
+                "name": "butter",
+                "qty": "",
+                "category": "fridge"
+              }
+            ],
+            "prepTasks": [],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "ibyg7qd",
+          "name": "Chicken Rice Bowl",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Rice Bowl",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "rice",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "beans",
+                "qty": "1 can",
+                "category": "pantry"
+              },
+              {
+                "name": "shredded chicken",
+                "qty": "from whole chicken",
+                "category": "protein"
+              },
+              {
+                "name": "lil pepper bag",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "mushrooms",
+                "qty": "portabella, whole",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "swiss chard",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "avocado",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "fresh salsa",
+                "qty": "",
+                "category": "produce"
+              }
+            ],
+            "prepTasks": [
+              "Cook rice (Instant Pot)",
+              "Roast fajita veg (peppers, mushrooms, onion)"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        },
+        {
+          "id": "tty3rdk",
+          "name": "Chicken Noodle Soup & Bread",
+          "day": null,
+          "cookName": null,
+          "status": null,
+          "recipe": {
+            "name": "Chicken Noodle Soup & Bread",
+            "sourceUrl": null,
+            "ingredients": [
+              {
+                "name": "whole chicken",
+                "qty": "3 lb",
+                "category": "protein"
+              },
+              {
+                "name": "carrot",
+                "qty": "extra for soup",
+                "category": "produce"
+              },
+              {
+                "name": "celery",
+                "qty": "extra for soup",
+                "category": "produce"
+              },
+              {
+                "name": "yellow onion",
+                "qty": "2",
+                "category": "produce"
+              },
+              {
+                "name": "garlic",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "rosemary",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "thyme",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "sage",
+                "qty": "",
+                "category": "produce"
+              },
+              {
+                "name": "egg noodles",
+                "qty": "",
+                "category": "pantry"
+              },
+              {
+                "name": "crusty bread",
+                "qty": "",
+                "category": "pantry"
+              }
+            ],
+            "prepTasks": [
+              "Make chicken stock (stove top; consider cutting bone broth with more water)",
+              "Shred chicken",
+              "Chop extra carrots and celery for the soup",
+              "Cook noodles"
+            ],
+            "steps": [],
+            "sources": []
+          }
+        }
+      ],
+      "prep": []
+    }
+  ],
+  "roasting": [
+    {
+      "name": "Beets",
+      "temp": "400",
+      "time": "35-60 m",
+      "link": null
+    },
+    {
+      "name": "Beets",
+      "temp": "400",
+      "time": "30-40",
+      "link": null
+    },
+    {
+      "name": "sweet potato",
+      "temp": "425",
+      "time": "40-50",
+      "link": null
+    },
+    {
+      "name": "sweet potato",
+      "temp": "425",
+      "time": "25-30",
+      "link": null
+    },
+    {
+      "name": "Roasted golden pots",
+      "temp": "425",
+      "time": "27-32",
+      "link": null
+    },
+    {
+      "name": "Asparagus",
+      "temp": "425",
+      "time": "10-15",
+      "link": null
+    },
+    {
+      "name": "Roast butt but squash",
+      "temp": "400 degrees",
+      "time": "30 min",
+      "link": null
+    }
+  ],
+  "requests": []
+}
