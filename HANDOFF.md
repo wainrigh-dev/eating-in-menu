@@ -17,10 +17,14 @@ everything decided since.
   `css/style.css`'s `.check-row`/`.checkbox` rules): tapping the row or the box toggles it,
   checked rows strike through and dim. Cooking steps keep their numbers. A recipe with no prep
   tasks or no cooking steps simply has no Prep/Cook header at all — never an empty one. This
-  depends on the app repo's v2.20 (`steps`/`sources` now in the snapshot, behind
-  `features.recipeStepsAndLinks`) — a snapshot published before that, or with the switch off,
-  still renders correctly (no Cook section, single legacy link), since the app's own `sourceUrl`
-  field is still read as a fallback.
+  depends on the app repo's v2.21 (`steps`/`sources` now in the snapshot, behind
+  `features.recipeStepsAndLinks` — note it's v2.21, not v2.20: the first attempt was committed to
+  GitHub but never actually published to the live Claude Artifact, so it silently didn't work
+  until the app repo's own CLAUDE.md fix for that landed) — a snapshot published before that, or
+  with the switch off, still renders correctly (no Cook section, single legacy link), since the
+  app's own `sourceUrl` field is still read as a fallback. **Confirmed working by Paul's QC
+  Nov 5 2026** — republished with the switch on and a recipe with real cooking steps, Cook
+  section showed correctly on the site.
 - **Checked state is saved on the device only** (`localStorage`, keyed by `week + meal.id`, wrapped
   in try/catch so a blocked store doesn't break the page) — it survives a refresh and a later
   visit, is per-meal (checking one meal's ingredients doesn't touch another), and is never sent
