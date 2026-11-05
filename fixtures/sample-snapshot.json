@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "publishedAt": "2026-11-03T18:42:00Z",
   "weeks": [
     {
@@ -30,7 +30,11 @@
             "sources": [
               { "url": "https://example.com/fajitas", "label": "" },
               { "url": "https://example.com/fajitas-video", "label": "Video version" }
-            ]
+            ],
+            "photos": {
+              "small": "images/sample/img-r1-small.jpg",
+              "medium": "images/sample/img-r1-medium.jpg"
+            }
           }
         },
         {

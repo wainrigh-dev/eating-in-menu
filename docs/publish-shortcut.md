@@ -9,6 +9,14 @@ that — Claude Code can't build or test an iOS Shortcut.
 If this proves too fiddly after a couple of real tries, stop — the `/publish-to-alex` Claude
 Code skill in this repo does the exact same job from a laptop, any time.
 
+**This Shortcut can only carry the one snapshot JSON file — not recipe photos (work order
+2026-11-04).** It picks exactly one file, encodes it, and makes one GitHub request; there's no
+step in here for the extra small/medium photo files the app also saves when a published meal's
+recipe has a photo. On a week where you've added or changed photos, skip this Shortcut and use
+the `/publish-to-alex` skill instead — hand it everything in your Downloads from that publish
+(the snapshot file and the photo files together) and it'll place all of it. Everything else
+below still works exactly as described for a publish with no photo changes.
+
 **Confirmed working end to end on Paul's iPhone, Nov 4 2026** — Part (b) below reflects the
 exact sequence that worked, including the fixes for the errors actually hit while building it
 (Format Date, URL wiring, a malformed path, and invalid Base64 — see Part (d)).

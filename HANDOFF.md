@@ -10,6 +10,17 @@ everything decided since.
 
 ## Status (Nov 5 2026)
 
+- **Recipe photos (work-orders/2026-11-04-alex-site-photos-and-print-bottom.md in the app repo,
+  this session): a meal's recipe photo now shows as a small thumbnail on its menu card and
+  larger at the top of its drill-in page, when the recipe has one.** Not confirmed on a device
+  yet. Depends on the app repo's new `recipe.photos` snapshot field (schemaVersion bumped 1 → 2) —
+  see the schema section below and the standing decision on the guard's narrow exception for it.
+  **The app's own publish screen only ever downloads files; it never pushes to this repo.** A
+  publish that includes photos needs the `/publish-to-alex` skill (not the one-tap Shortcut,
+  which can only carry the one snapshot JSON) — Paul hands it the snapshot plus the small/medium
+  photo files the app saved alongside it, and the skill places them at the exact `images/...`
+  paths the snapshot already names. "Print this week" also moved to the very bottom of the Menu
+  page (previously near the top) — same release, unrelated change, no snapshot impact.
 - **Meal detail now shows the full recipe as checklists (work-orders/2026-11-04-alex-site-cook-
   steps-checklists.md in the app repo), not just plain bullet lists — Ingredients, Prep, Cook, in
   that order, matching the app's section order.** `js/meal.js` renders each as a tappable row
@@ -94,7 +105,9 @@ Shortcut (see `docs/publish-shortcut.md`) or hands the file to a Claude Code ses
 script (`scripts/build-snapshot.mjs`, wired up via `vercel.json`'s `buildCommand`) then runs
 *before* anything deploys: it picks the newest file in `snapshots/` by filename, checks it's
 valid JSON with the required fields and **none** of the never-show fields (allergies, cautions,
-costs, notes, the household roster, recipe PDFs/photos), and only then writes it to
+costs, notes, the household roster, recipe PDFs — plus, since work order 2026-11-04, anything
+under `recipe.photos` that isn't exactly the narrow `{small, medium}` relative-path shape that
+work order carved out — see the standing decision below), and only then writes it to
 `data/snapshot.json` — the file every page actually fetches. If the check fails, the Vercel build
 fails and the previous deployment keeps serving; nothing bad can go live. A Claude Code session
 no longer edits `data/snapshot.json` directly — that file is now a build output, regenerated from
@@ -116,11 +129,11 @@ no longer edits `data/snapshot.json` directly — that file is now a build outpu
   snapshot's `requests` array is empty and every meal's `status` field is `null`. Don't build
   against that assumption changing on its own; it's separate, later work.
 
-## The snapshot schema (schemaVersion 1)
+## The snapshot schema (schemaVersion 2)
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "publishedAt": "2026-11-03T18:42:00Z",
   "weeks": [
     {
@@ -138,7 +151,11 @@ no longer edits `data/snapshot.json` directly — that file is now a build outpu
             "ingredients": [
               { "name": "Bell pepper", "qty": "2", "category": "produce" }
             ],
-            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"]
+            "prepTasks": ["Roast fajita veg (peppers, mushrooms, onion)"],
+            "photos": {
+              "small": "images/2026-11-05-1530/img-r1-small.jpg",
+              "medium": "images/2026-11-05-1530/img-r1-medium.jpg"
+            }
           }
         }
       ],
@@ -194,9 +211,18 @@ app's `src/app.tsx` if you ever do get access to that repo):
   (`"status": "Added"`) specifically so you have something to design the "confirmed" state
   against — that part of the fixture is aspirational, not a sample of real current output.
 - A real snapshot never contains: ingredient allergy/caution/notes/cost, a meal or week note, the
-  household member roster, person ids, or recipe PDFs/photos. If a published snapshot file you're
-  given ever contains any of those, something regressed upstream — don't build around their
-  presence, and flag it back rather than rendering them.
+  household member roster, person ids, or recipe PDFs. If a published snapshot file you're given
+  ever contains any of those, something regressed upstream — don't build around their presence,
+  and flag it back rather than rendering them.
+- **`recipe.photos` is the one deliberate exception (work order 2026-11-04), and only in this
+  exact shape: `{small, medium}`, each a plain relative path under `images/` (or either/both
+  `null`/absent) — never the photo itself, never a `data:` URI, never an external URL.**
+  `scripts/build-snapshot.mjs`'s guard enforces that shape specifically (`isAllowedPhotosField`)
+  before its general "photo"/"image" substring block ever sees the key, so a `photos` field in
+  any other shape — or a `photo` (singular, the app's own internal field), `image`, or anything
+  else matching those substrings — is still always rejected, same as before this work order. The
+  actual image bytes live as files under `images/<dated-folder>/`, committed alongside the
+  snapshot that references them — never inside the JSON.
 
 ## What to build (Work Order 4A)
 

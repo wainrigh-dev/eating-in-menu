@@ -49,6 +49,37 @@ for (const badKey of ["notes", "allergy", "caution", "cost", "household", "photo
 check("findForbiddenKeys catches a nested never-show field",
   findForbiddenKeys({ weeks: [{ meals: [{ recipe: { ingredients: [{ allergyWarning: "nuts" }] } }] }] }).length > 0);
 
+// --- Work order 2026-11-04 (Alex site photos): the narrow recipe.photos exception ---
+const withPhotos = JSON.parse(JSON.stringify(GOOD));
+withPhotos.weeks[0].meals[0].recipe = {
+  name: "Test", photos: { small: "images/2026-11-05-1200/img-r1-small.jpg", medium: "images/2026-11-05-1200/img-r1-medium.jpg" },
+};
+check("a valid recipe.photos {small, medium} relative-path pair passes", validateSnapshot(withPhotos).length === 0);
+
+const nullPhotos = JSON.parse(JSON.stringify(GOOD));
+nullPhotos.weeks[0].meals[0].recipe = { name: "Test", photos: null };
+check("recipe.photos: null (no photo for this recipe) passes", validateSnapshot(nullPhotos).length === 0);
+
+const dataUriPhoto = JSON.parse(JSON.stringify(withPhotos));
+dataUriPhoto.weeks[0].meals[0].recipe.photos.small = "data:image/jpeg;base64,AAAA";
+check("an embedded data: URI in recipe.photos.small is rejected", validateSnapshot(dataUriPhoto).length > 0);
+
+const externalUrlPhoto = JSON.parse(JSON.stringify(withPhotos));
+externalUrlPhoto.weeks[0].meals[0].recipe.photos.medium = "https://example.com/photo.jpg";
+check("an external URL in recipe.photos.medium is rejected", validateSnapshot(externalUrlPhoto).length > 0);
+
+const traversalPhoto = JSON.parse(JSON.stringify(withPhotos));
+traversalPhoto.weeks[0].meals[0].recipe.photos.small = "images/../../etc/passwd";
+check("a path-traversal attempt in recipe.photos.small is rejected", validateSnapshot(traversalPhoto).length > 0);
+
+const extraKeyPhoto = JSON.parse(JSON.stringify(withPhotos));
+extraKeyPhoto.weeks[0].meals[0].recipe.photos.large = "images/2026-11-05-1200/img-r1-large.jpg";
+check("a photos object with an extra key beyond small/medium is rejected", validateSnapshot(extraKeyPhoto).length > 0);
+
+const legacyPhotoObj = JSON.parse(JSON.stringify(GOOD));
+legacyPhotoObj.weeks[0].meals[0].recipe = { name: "Test", photo: { id: "x", url: "https://internal/x" } };
+check("the app's own singular recipe.photo object is still always rejected", validateSnapshot(legacyPhotoObj).length > 0);
+
 // --- End-to-end: run the actual script against a temp snapshots/ dir ---
 const tmp = await mkdtemp(path.join(tmpdir(), "alex-guard-"));
 try {

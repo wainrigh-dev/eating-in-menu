@@ -20,6 +20,28 @@ const NEVER_SHOW_KEY_SUBSTRINGS = [
   "pdf", "photo", "image", "cooklog",
 ];
 
+// Work order 2026-11-04 (Alex site photos): one narrow, deliberate exception to the "photo"
+// substring block above — a recipe's `photos` field, but *only* when its value is exactly
+// `{small, medium}` (or either/both null) and each present value is a plain relative path
+// starting with "images/", with no "..", no ":" (rules out "data:"/"http:"/absolute URLs) and
+// no backslash. This still lets the file-path strings travel; it never lets an actual photo,
+// a data: URI, or an external image URL through. Every other "photo"/"image"-named key (an
+// embedded photo object, a raw PDF, anything else on the list above) is still blocked exactly
+// as before — this function is checked before the general key-substring scan ever sees the
+// `photos` key, so matching here is the only way a "photo"-named key can pass at all.
+const SAFE_RELATIVE_IMAGE_PATH = /^images\/[^:\\]+$/;
+function isAllowedPhotosField(value) {
+  if (value === null) return true;
+  if (typeof value !== "object" || Array.isArray(value)) return false;
+  const keys = Object.keys(value);
+  if (keys.some((k) => k !== "small" && k !== "medium")) return false;
+  return ["small", "medium"].every((k) => {
+    const v = value[k];
+    if (v === undefined || v === null) return true;
+    return typeof v === "string" && SAFE_RELATIVE_IMAGE_PATH.test(v) && !v.includes("..");
+  });
+}
+
 const REQUIRED_TOP_LEVEL = ["schemaVersion", "publishedAt", "weeks"];
 
 export function findForbiddenKeys(value, pathSoFar = "") {
@@ -28,6 +50,10 @@ export function findForbiddenKeys(value, pathSoFar = "") {
     value.forEach((v, i) => hits.push(...findForbiddenKeys(v, `${pathSoFar}[${i}]`)));
   } else if (value && typeof value === "object") {
     for (const [key, v] of Object.entries(value)) {
+      if (key === "photos") {
+        if (!isAllowedPhotosField(v)) hits.push(`${pathSoFar}.${key} (not an allowed {small, medium} relative-path shape)`);
+        continue; // never recurse into an allowed photos object — nothing else to check inside it
+      }
       const lower = key.toLowerCase();
       if (NEVER_SHOW_KEY_SUBSTRINGS.some((bad) => lower.includes(bad))) {
         hits.push(`${pathSoFar}.${key}`);

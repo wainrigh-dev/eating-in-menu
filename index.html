@@ -26,11 +26,15 @@
 
   <main class="wrap">
     <div class="week-picker" id="week-picker"></div>
-    <button class="print-btn" id="print-btn">🖨️ Print this week</button>
     <div id="menu-body"><div class="empty">Loading…</div></div>
   </main>
 
   <footer class="site">Eating In — read-only menu for Alex</footer>
+
+  <!-- Always the last thing on the page (work order 2026-11-04) — scrolls with the page, not
+       pinned, and never shows up in the printed output (the print stylesheet hides everything
+       outside #print-sheet below, this button included). -->
+  <button class="print-btn" id="print-btn">🖨️ Print this week</button>
 
   <!-- Built only when "Print" is pressed; hidden from screen, shown on print. -->
   <div id="print-sheet"></div>
